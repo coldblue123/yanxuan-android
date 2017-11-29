@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:background="#fafafa" >
+
+    <!-- 左侧扫一扫 -->
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" 
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:src="@drawable/saomiao" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#8a8a8a"
+            android:textSize="12sp"
+            android:text="分类" />
+
+    </LinearLayout>
+	<!-- 左侧扫一扫 -->
+
+    <!-- 搜索 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/find"
+        android:background="#ededed"
+        android:layout_toRightOf="@+id/linearLayout1"
+        android:focusable="true" 
+		android:focusableInTouchMode="true"
+        android:paddingLeft="15dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/find_big"
+            android:layout_gravity="center_vertical"/>
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入搜索特产名称"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip" 
+            android:textColor="#7b7b7b"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+	<!-- 搜索 -->
+	
+	<!-- 搜索文字 -->
+	<TextView
+        android:id="@+id/find"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textColor="#7b7b7b"
+        android:textSize="16dp"
+        android:text="搜索"
+        android:gravity="center" />
+	<!-- 搜索文字 -->
+	
+</RelativeLayout>
