@@ -24,3 +24,6 @@
 	// 不自动获取焦点
 	android:focusable="true" 
     android:focusableInTouchMode="true" 
+
+
+// 更改
