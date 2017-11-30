@@ -27,47 +27,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        layout_menu_1=(LinearLayout)findViewById(R.id.layout_menu_1);
-        layout_menu_2=(LinearLayout)findViewById(R.id.layout_menu_2);
-        layout_menu_3=(LinearLayout)findViewById(R.id.layout_menu_3);
-        layout_menu_4=(LinearLayout)findViewById(R.id.layout_menu_4);
-        
-        imagv_1=(ImageView)findViewById(R.id.imagev_1);
-        imagv_1.setImageResource(R.drawable.center1_2);
-        
-        textV_1=(TextView)findViewById(R.id.textV_1);
-        textV_1.setTextColor(getResources().getColor(R.color.text_bg));
-        
-        layout_menu_2.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				intent = new Intent();
-			    intent.setClass(MainActivity.this,MainActivity2.class);
-			    startActivity(intent);
-			    overridePendingTransition(0,0); 
-			    finish();
-			}
-		});
-        
-        layout_menu_3.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				intent = new Intent();
-			    intent.setClass(MainActivity.this,MainActivity3.class);
-			    startActivity(intent);
-			    overridePendingTransition(0,0); 
-			    finish();
-			    
-			}
-		});
-        layout_menu_4.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				intent = new Intent();
-			    intent.setClass(MainActivity.this,MainActivity4.class);
-			    startActivity(intent);
-			    overridePendingTransition(0,0); 
-			    finish();
-			}
-		});
+     // 页面底部导航的跳转方法
+        routerPageFun();
     }
 
 
@@ -77,5 +38,51 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
+   // 页面底部导航的跳转方法
+   public void routerPageFun() {
+	   layout_menu_1=(LinearLayout)findViewById(R.id.layout_menu_1);
+       layout_menu_2=(LinearLayout)findViewById(R.id.layout_menu_2);
+       layout_menu_3=(LinearLayout)findViewById(R.id.layout_menu_3);
+       layout_menu_4=(LinearLayout)findViewById(R.id.layout_menu_4);
+       
+       // 更改图标
+       imagv_1=(ImageView)findViewById(R.id.imagev_1);
+       imagv_1.setImageResource(R.drawable.center1_2);
+       // 更改文字颜色
+       textV_1=(TextView)findViewById(R.id.textV_1);
+       textV_1.setTextColor(getResources().getColor(R.color.text_bg));
+       
+       //跳转方法
+       layout_menu_2.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				intent = new Intent();
+			    intent.setClass(MainActivity.this,MainActivity2.class);
+			    startActivity(intent);
+			    overridePendingTransition(0,0); 
+			    finish();
+			}
+		});
+       
+       layout_menu_3.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				intent = new Intent();
+			    intent.setClass(MainActivity.this,MainActivity3.class);
+			    startActivity(intent);
+			    overridePendingTransition(0,0); 
+			    finish();
+			    
+			}
+		});
+       layout_menu_4.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				intent = new Intent();
+			    intent.setClass(MainActivity.this,MainActivity4.class);
+			    startActivity(intent);
+			    overridePendingTransition(0,0); 
+			    finish();
+			}
+		});
+   }
     
 }

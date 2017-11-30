@@ -124,7 +124,7 @@
 		        android:layout_height="wrap_content"
 		        android:background="#fff" >
 		
-		        <include layout="@layout/find_list" />
+		        <include layout="@layout/find_list2" />
 		    </LinearLayout>
 		    
 		     <!-- 显示推荐商品一 -->
@@ -133,7 +133,7 @@
 		        android:layout_height="wrap_content"
 		        android:background="#fff" >
 		
-		        <include layout="@layout/find_list" />
+		        <include layout="@layout/find_list2" />
 		    </LinearLayout>
 		    
 		    

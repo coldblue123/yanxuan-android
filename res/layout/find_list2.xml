@@ -50,6 +50,17 @@
                 </LinearLayout>
                 
                 <TextView
+				    android:layout_width="wrap_content"
+				    android:layout_height="20dp"
+				    android:background="#e47a7a"
+				    android:textColor="#fff"
+				    android:text="优惠价"
+				    android:gravity="center"
+				    android:layout_marginTop="5dp"
+				    android:paddingRight="3dp"
+				    android:paddingLeft="3dp" />
+                
+                <TextView
 				    android:layout_width="match_parent"
 				    android:layout_height="wrap_content"
 				    android:textColor="#313131"
@@ -103,6 +114,17 @@
                         android:gravity="center_vertical"/>
 
                 </LinearLayout>
+                
+                <TextView
+				    android:layout_width="wrap_content"
+				    android:layout_height="20dp"
+				    android:background="#e47a7a"
+				    android:textColor="#fff"
+				    android:text="优惠价"
+				    android:gravity="center"
+				    android:layout_marginTop="5dp"
+				    android:paddingRight="3dp"
+				    android:paddingLeft="3dp" />
                 
                 <TextView
 				    android:layout_width="match_parent"

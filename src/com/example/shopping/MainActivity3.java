@@ -26,6 +26,19 @@ public class MainActivity3 extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_activity3);
+		// 底部导航跳转页面方法
+		routerPageFun();
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_activity3, menu);
+		return true;
+	}
+	
+	// 底部导航跳转页面方法
+	public void routerPageFun() {
 		layout_menu_1=(LinearLayout)findViewById(R.id.layout_menu_1);
         layout_menu_2=(LinearLayout)findViewById(R.id.layout_menu_2);
         layout_menu_3=(LinearLayout)findViewById(R.id.layout_menu_3);
@@ -63,13 +76,6 @@ public class MainActivity3 extends Activity {
 			    finish();
 			}
 		});
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main_activity3, menu);
-		return true;
 	}
 
 }
