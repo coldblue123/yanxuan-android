@@ -47,9 +47,9 @@ public class Quanju extends Application {
 			String[] introList = { "来自星星零食1", "来自星星零食2", "来自星星零食3",
 					"来自星星零食4", "来自热剧的零食5", "来自热剧的零食6",
 					"来自热剧的零食7", "来自热剧的零食8", "来自星星零食9", "来自星星零食10" };
-			String[] imageList = { "a1.png", "a2.png", "a3.png",
-					"a4.png", "a5.png", "a6.png",
-					"a7.png", "a8.png", "a9.png", "a10.png" };
+			String[] imageList = { "a1", "a2", "a3",
+					"a4", "a5", "a6",
+					"a7", "a8", "a9", "a10" };
 			/*
 			 * iD, int sort, String merchantName, String name, double price,
 			 * String uint, int classifyID, String classify, String intro,

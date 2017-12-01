@@ -23,7 +23,6 @@ public class Find_index extends Activity {
 
 	String findEditStr;// 搜索框传的值
 	private GridView gview;
-	private List<Map<String, Object>> data_list;
 	ArrayList<HashMap<String, Object>> list;// 获取列表数据
 	private SimpleAdapter sim_adapter;
 	Quanju q; // 定义数据表
@@ -37,37 +36,11 @@ public class Find_index extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.find_index);
 
-		// -----------测试-------------
-	/*	gview = (GridView) findViewById(R.id.gview);
-		// 新建List
-		data_list = new ArrayList<Map<String, Object>>();
-		// 获取数据
-		getData();
-		// 新建适配器
-		String[] from = { "image", "text" };
-		int[] to = { R.id.image_show, R.id.price_show };
-		sim_adapter = new SimpleAdapter(this, data_list,
-				R.layout.find_list_item, from, to);
-		// 配置适配器
-		gview.setAdapter(sim_adapter);*/
-		// -----------测试-------------
-
 		// 接受MainActivity首页搜索框传来的值
 		findEditStr = getIntent().getStringExtra("findEditStr");
 		q = (Quanju) getApplicationContext();// 获取所有表数据
 		initdata();// 列表数据初始
 		setSimple();// 填充数据
-	}
-
-	public List<Map<String, Object>> getData() {
-		// cion和iconName的长度是相同的，这里任选其一都可以
-		for (int i = 0; i < icon.length; i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("image", icon[i]);
-			map.put("text", "¥" + price[i]);
-			data_list.add(map);
-		}
-		return data_list;
 	}
 
 	/**

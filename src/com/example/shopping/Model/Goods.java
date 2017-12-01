@@ -6,20 +6,22 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.shopping.Common.Common;
+import com.example.shopping.Common.CommonMath;
 
-//ÉÌÆ·±í
+import android.content.Context;
+
+//å•†å“è¡¨
 public class Goods {
 	int ID;
 	int Sort;
-	String MerchantName; // ÉÌ¼ÒÃû
-	String Name;// ÉÌÆ·Ãû³Æ
-	double Price;// µ¥¼Û
-	String Uint;// °ü×°µ¥Î»
-	int ClassifyID;// ·ÖÀàID
-	String Classify;// ·ÖÀàÃû
-	String Intro;// ¼ò½é
-	String Image;// Í¼Æ¬
+	String MerchantName; // å•†å®¶å
+	String Name;// å•†å“åç§°
+	double Price;// å•ä»·
+	String Uint;// åŒ…è£…å•ä½
+	int ClassifyID;// åˆ†ç±»ID
+	String Classify;// åˆ†ç±»å
+	String Intro;// ç®€ä»‹
+	String Image;// å›¾ç‰‡
 
 	public Goods() {
 	}
@@ -39,41 +41,41 @@ public class Goods {
 		Image = image;
 	}
 
-	// ***************¹«¹²·½·¨***************************
-	// Ôö¼ÓºöÂÔ
+	// ***************å…¬å…±æ–¹æ³•***************************
+	// å¢åŠ å¿½ç•¥
 
-	// Ä£ºı(ÉÌÆ·Ãû³Æ»òÀà±ğÃû\ÉÌ¼ÒÃû)²éÑ¯ÁĞ±í
+	// æ¨¡ç³Š(å•†å“åç§°æˆ–ç±»åˆ«å\å•†å®¶å)æŸ¥è¯¢åˆ—è¡¨
 	public static List<Goods> selectGoodsByNameOrClass(List<Goods> list, String  findStr) {
 		List<Goods> relist=new ArrayList<Goods>();
 		for (Goods goods : list) {
 			if (goods.Name.contains(findStr)||goods.Classify.contains(findStr)
 					||goods.MerchantName.contains(findStr)) {
-				relist.add(goods); // Ìí¼ÓÊı¾İ¸ølist¼¯ºÏ
+				relist.add(goods); // æ·»åŠ æ•°æ®ç»™listé›†åˆ
 			}
 		}
 		return relist;
 	}
 
-	// Ä£ºı²éÑ¯ÁĞ±í
+	// æ¨¡ç³ŠæŸ¥è¯¢åˆ—è¡¨
 		public static ArrayList<HashMap<String, Object>> getListToHashMap(List<Goods> list) {
 			ArrayList<HashMap<String, Object>> list2=new ArrayList<HashMap<String,Object>>();
 			for (Goods goods : list) {
-					// Ìí¼ÓÊı¾İ¸ømap¼¯ºÏ
-					HashMap<String, Object> map1 = new HashMap<String, Object>(); // ¶¨Òåmap¼¯ºÏ(Êı×é£©£¬Ò»¸ömap¼¯ºÏ¶ÔÓ¦ListViewµÄÒ»À¸¡£
+					// æ·»åŠ æ•°æ®ç»™mapé›†åˆ
+					HashMap<String, Object> map1 = new HashMap<String, Object>(); // å®šä¹‰mapé›†åˆ(æ•°ç»„ï¼‰ï¼Œä¸€ä¸ªmapé›†åˆå¯¹åº”ListViewçš„ä¸€æ ã€‚
 					map1.put("MerchantName", goods.MerchantName);
 					map1.put("Price", goods.Price);
-					map1.put("PriceStr","£¤ " +goods.Price);
+					map1.put("PriceStr","Â¥ " +goods.Price);
 					map1.put("Name", goods.Name);
 					map1.put("UintName", goods.Uint+"    "+goods.Name);
 					map1.put("Classify", goods.Classify);
 					map1.put("Intro", goods.Intro);
-					map1.put("Image", new Common().getImageResource(goods.Image));
-					// -----°Ñmap¼¯ºÏ·Å½ølist¼¯ºÏÀï---------
-					list2.add(map1); // Ìí¼ÓÊı¾İ¸ølist¼¯ºÏ
+					map1.put("Image",CommonMath.getImageResourceID(goods.Image));
+					// -----æŠŠmapé›†åˆæ”¾è¿›listé›†åˆé‡Œ---------
+					list2.add(map1); // æ·»åŠ æ•°æ®ç»™listé›†åˆ
 				}
 			return list2;
 		}
-	// ²éÑ¯µ¥¸ö¼ÇÂ¼
+	// æŸ¥è¯¢å•ä¸ªè®°å½•
 	public Goods selectGoodsByID(List<Goods> list, int id) {
 		Goods l = new Goods();
 		for (Goods goods : list) {
@@ -85,30 +87,30 @@ public class Goods {
 		return l;
 	}
 
-	// ÅÅĞòÍ¨¹ıÊôĞÔÅÅĞò
+	// æ’åºé€šè¿‡å±æ€§æ’åº
 	public List<Goods> sortGoodsListBySort(List<Goods> list) {
 		Comparator<Goods> comparator = new Comparator<Goods>() {
 			public int compare(Goods s1, Goods s2) {
-				// ÏÈÅÅĞòºÅ
+				// å…ˆæ’åºå·
 				if (s1.Sort != s2.Sort) {
 					return s1.Sort - s2.Sort;
 				} else {
-					// ÄêÁäÏàÍ¬Ôò°´ĞÕÃûÅÅĞò
+					// å¹´é¾„ç›¸åŒåˆ™æŒ‰å§“åæ’åº
 					if (!s1.Name.equals(s2.Name)) {
 						return s1.Name.compareTo(s2.Name);
 					} else {
-						// ĞÕÃûÒ²ÏàÍ¬Ôò°´Ñ§ºÅÅÅĞò
+						// å§“åä¹Ÿç›¸åŒåˆ™æŒ‰å­¦å·æ’åº
 						return s1.ID - s2.ID;
 					}
 				}
 			}
 		};
-		// ÕâÀï¾Í»á×Ô¶¯¸ù¾İ¹æÔò½øĞĞÅÅĞò
+		// è¿™é‡Œå°±ä¼šè‡ªåŠ¨æ ¹æ®è§„åˆ™è¿›è¡Œæ’åº
 		Collections.sort(list, comparator);
 		return list;
 	}
 
-	// É¾³ıÒ»Ìõ¼ÇÂ¼
+	// åˆ é™¤ä¸€æ¡è®°å½•
 	public boolean deleteGoodsByID(List<Goods> list, int id) {
 		boolean b = false;
 		Goods l = new Goods();
@@ -123,7 +125,7 @@ public class Goods {
 		return b;
 	}
 
-	// ĞŞ¸ÄÒ»Ìõ¼ÇÂ¼Í¨¹ıid
+	// ä¿®æ”¹ä¸€æ¡è®°å½•é€šè¿‡id
 	public boolean updateGoodsByID(List<Goods> list, int id, String name) {
 		boolean b = false;
 		for (Goods goods : list) {
