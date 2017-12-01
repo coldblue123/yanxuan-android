@@ -31,18 +31,11 @@
             android:orientation="vertical" >
             
             <!-- banner -->
-		    <LinearLayout
-		        android:id="@+id/linearLayout2"
+	        <fragment
+		        android:id="@+id/fragment_cycle_viewpager_content"
+		        android:name="cn.androiddevelop.cycleviewpager.lib.CycleViewPager"
 		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:background="#fff">
-			
-		        <fragment
-			        android:id="@+id/fragment_cycle_viewpager_content"
-			        android:name="cn.androiddevelop.cycleviewpager.lib.CycleViewPager"
-			        android:layout_width="match_parent"
-			        android:layout_height="200dp"/>
-		    </LinearLayout>
+		        android:layout_height="200dp"/>
 	
 		    <!-- 标签 -->
 		    <LinearLayout

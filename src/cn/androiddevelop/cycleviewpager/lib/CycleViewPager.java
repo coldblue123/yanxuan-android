@@ -10,13 +10,16 @@ import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.stevenhu.android.phone.bean.ADInfo;
 import com.example.shopping.R;
@@ -85,9 +88,11 @@ public class CycleViewPager extends Fragment implements OnPageChangeListener {
 				}
 			}
 		};
+		
 
 		return view;
 	}
+	
 
 	public void setData(List<ImageView> views, List<ADInfo> list, ImageCycleViewListener listener) {
 		setData(views, list, listener, 0);

@@ -7,11 +7,15 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,22 +30,27 @@ public class MainActivity extends Activity {
 	private LinearLayout layout_menu_1, layout_menu_2, layout_menu_3,
 			layout_menu_4;
 	Intent intent;
-	
-	
+	// 轮播图相关组件
+	private ScrollView mScrollView;
+	private float mLastX;
+	private ViewPager viewPager;
 	private List<ImageView> views = new ArrayList<ImageView>();
 	private List<ADInfo> infos = new ArrayList<ADInfo>();
 	private CycleViewPager cycleViewPager;
-	
+	// 轮播图图片
 	private int[] imageUrls = {
 			R.drawable.banner_test,
 			R.drawable.banner_test,
 			R.drawable.banner_test,
 			};
 	
-
-	Quanju q; // 定义全局类
+	
+	
 	private ImageView imagv_1, imagv_2, imagv_3, imagv_4;
 	private TextView textV_1, textV_2, textV_3, textV_4;
+
+	Quanju q; // 定义全局类
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +66,7 @@ public class MainActivity extends Activity {
 		  btFindGo();
 		// 初始化banner轮播图
 			initialize();
-	}
+}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -168,7 +177,7 @@ public class MainActivity extends Activity {
 			// 在加载数据前设置是否循环
 			cycleViewPager.setData(views, infos, mAdCycleViewListener);
 			//设置轮播
-			cycleViewPager.setWheel(false);
+			cycleViewPager.setWheel(true);
 
 		    // 设置轮播时间，默认5000ms
 			cycleViewPager.setTime(2000);
