@@ -17,7 +17,11 @@
         <activity
             android:name="com.example.shopping.MainActivity"
             android:label="@string/app_name" >
-            
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.example.shopping.Find_list"
@@ -40,11 +44,7 @@
             android:name="com.example.shopping.Find_index"
             android:label="@string/title_activity_find_index" >
             
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+           
         </activity>
     </application>
 

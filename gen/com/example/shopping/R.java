@@ -62,7 +62,7 @@ public final class R {
         public static final int top_solid=0x7f020023;
     }
     public static final class id {
-        public static final int action_settings=0x7f09001e;
+        public static final int action_settings=0x7f09001f;
         public static final int find=0x7f090016;
         public static final int findText=0x7f090017;
         public static final int gview=0x7f090018;
@@ -73,7 +73,8 @@ public final class R {
         public static final int imagev_2=0x7f09000d;
         public static final int imagev_3=0x7f090010;
         public static final int imagev_4=0x7f090013;
-        public static final int lable_show=0x7f09001b;
+        public static final int lable_Intro=0x7f09001b;
+        public static final int lable_show=0x7f09001c;
         public static final int lables=0x7f090019;
         public static final int layout_menu_1=0x7f090009;
         public static final int layout_menu_2=0x7f09000c;
@@ -85,8 +86,8 @@ public final class R {
         public static final int linearLayout4=0x7f090005;
         public static final int linearLayout5=0x7f090007;
         public static final int ly_show_bottom=0x7f090002;
-        public static final int price=0x7f09001d;
-        public static final int price_show=0x7f09001c;
+        public static final int price=0x7f09001e;
+        public static final int price_show=0x7f09001d;
         public static final int scrollView1=0x7f090001;
         public static final int textV_1=0x7f09000b;
         public static final int textV_2=0x7f09000e;
