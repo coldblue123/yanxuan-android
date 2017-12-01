@@ -6,6 +6,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+import com.example.shopping.Common.Common;
+
 //商品表
 public class Goods {
 	int ID;
@@ -60,11 +62,12 @@ public class Goods {
 					HashMap<String, Object> map1 = new HashMap<String, Object>(); // 定义map集合(数组），一个map集合对应ListView的一栏。
 					map1.put("MerchantName", goods.MerchantName);
 					map1.put("Price", goods.Price);
+					map1.put("PriceStr","￥ " +goods.Price);
 					map1.put("Name", goods.Name);
 					map1.put("UintName", goods.Uint+"    "+goods.Name);
 					map1.put("Classify", goods.Classify);
 					map1.put("Intro", goods.Intro);
-					map1.put("Image", goods.Image);
+					map1.put("Image", new Common().getImageResource(goods.Image));
 					// -----把map集合放进list集合里---------
 					list2.add(map1); // 添加数据给list集合
 				}

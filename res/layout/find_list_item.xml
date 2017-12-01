@@ -26,6 +26,7 @@
                        android:layout_gravity="center"
                        android:src="@drawable/test1" />
 				<TextView
+				    android:id="@+id/lable_Intro"
                        android:layout_width="match_parent"
                        android:layout_height="30dp"
                        android:text="用心之作上乘之选" 
@@ -55,6 +56,7 @@
                    android:gravity="center_vertical" 
 				    android:textSize="16sp"
 				    android:textColor="#9f2b2c"
+				    android:text="￥ 25.6"
 				    android:layout_marginTop="5dp"/>
                
            </LinearLayout>
