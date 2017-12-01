@@ -51,15 +51,18 @@ public final class R {
         public static final int top_solid=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f090019;
+        public static final int action_settings=0x7f09001d;
         public static final int find=0x7f090016;
+        public static final int gview=0x7f090017;
         public static final int imageView1=0x7f090006;
         public static final int imageView2=0x7f090015;
+        public static final int image_show=0x7f090019;
         public static final int imagev_1=0x7f09000a;
         public static final int imagev_2=0x7f09000d;
         public static final int imagev_3=0x7f090010;
         public static final int imagev_4=0x7f090013;
-        public static final int lables=0x7f090017;
+        public static final int lable_show=0x7f09001a;
+        public static final int lables=0x7f090018;
         public static final int layout_menu_1=0x7f090009;
         public static final int layout_menu_2=0x7f09000c;
         public static final int layout_menu_3=0x7f09000f;
@@ -70,7 +73,8 @@ public final class R {
         public static final int linearLayout4=0x7f090005;
         public static final int linearLayout5=0x7f090007;
         public static final int ly_show_bottom=0x7f090002;
-        public static final int price=0x7f090018;
+        public static final int price=0x7f09001c;
+        public static final int price_show=0x7f09001b;
         public static final int scrollView1=0x7f090001;
         public static final int textV_1=0x7f09000b;
         public static final int textV_2=0x7f09000e;
@@ -86,12 +90,13 @@ public final class R {
         public static final int find_index=0x7f030004;
         public static final int find_list=0x7f030005;
         public static final int find_list2=0x7f030006;
-        public static final int lable=0x7f030007;
-        public static final int lable2=0x7f030008;
-        public static final int main_activity2=0x7f030009;
-        public static final int main_activity3=0x7f03000a;
-        public static final int main_activity4=0x7f03000b;
-        public static final int show_com_list1=0x7f03000c;
+        public static final int find_list_item=0x7f030007;
+        public static final int lable=0x7f030008;
+        public static final int lable2=0x7f030009;
+        public static final int main_activity2=0x7f03000a;
+        public static final int main_activity3=0x7f03000b;
+        public static final int main_activity4=0x7f03000c;
+        public static final int show_com_list1=0x7f03000d;
     }
     public static final class menu {
         public static final int find_index=0x7f080000;
