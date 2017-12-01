@@ -1,3 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/cn/androiddevelop/cycleviewpager/lib=GBK
 encoding//src/com/example/shopping/Find_index.java=UTF-8
+<<<<<<< HEAD
 encoding//src/com/example/shopping/Model/Goods.java=UTF-8
+=======
+encoding/<project>=GBK
+>>>>>>> d96f4deb1644c159b564f7d62e9ccbebb1043381

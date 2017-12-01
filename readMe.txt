@@ -52,3 +52,29 @@
 	14.android:transcriptMode="alwaysScroll" //当你动态添加数据时，列表将自动往下滚动最新的条目可以自动滚动到可视范围内
 	15.android:drawSelectorOnTop="false"  //点击某条记录不放，颜色会在记录的后面成为背景色,内容的文字可见(缺省为false)
 
+		// 轮播图
+		viewPager = (ViewPager)findViewById(R.id.viewPager);
+		// 滚动条
+		mScrollView = (ScrollView)findViewById(R.id.scrollView1);
+		// 处理滚动条和轮播图的冲突事件
+		viewPager.setOnTouchListener(new OnTouchListener() {
+			@Override
+		    public boolean onTouch(View v, MotionEvent event) {
+		        int action = event.getAction();
+		        if(action == MotionEvent.ACTION_DOWN) {
+		            // 记录点击到ViewPager时候，手指的X坐标
+		            mLastX = event.getX();
+		        }
+		        if(action == MotionEvent.ACTION_MOVE) {
+		            // 超过阈值
+		            if(Math.abs(event.getX() - mLastX) > 10f) {
+		                mScrollView.requestDisallowInterceptTouchEvent(true);
+		            }
+		        }
+		        if(action == MotionEvent.ACTION_UP) {
+		            // 用户抬起手指，恢复父布局状态
+		            mScrollView.requestDisallowInterceptTouchEvent(false);
+		        }
+		        return true;
+		    }
+		});
