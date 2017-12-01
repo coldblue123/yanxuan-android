@@ -88,15 +88,14 @@ public final class R {
         public static final int bottom=0x7f030002;
         public static final int find=0x7f030003;
         public static final int find_index=0x7f030004;
-        public static final int find_list=0x7f030005;
-        public static final int find_list2=0x7f030006;
-        public static final int find_list_item=0x7f030007;
-        public static final int lable=0x7f030008;
-        public static final int lable2=0x7f030009;
-        public static final int main_activity2=0x7f03000a;
-        public static final int main_activity3=0x7f03000b;
-        public static final int main_activity4=0x7f03000c;
-        public static final int show_com_list1=0x7f03000d;
+        public static final int find_list2=0x7f030005;
+        public static final int find_list_item=0x7f030006;
+        public static final int lable=0x7f030007;
+        public static final int lable2=0x7f030008;
+        public static final int main_activity2=0x7f030009;
+        public static final int main_activity3=0x7f03000a;
+        public static final int main_activity4=0x7f03000b;
+        public static final int show_com_list1=0x7f03000c;
     }
     public static final class menu {
         public static final int find_index=0x7f080000;

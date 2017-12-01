@@ -16,34 +16,27 @@
         <include layout="@layout/find" />
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
             android:orientation="vertical" >
             
-            <!-- banner -->
-		    <LinearLayout
-		        android:id="@+id/linearLayout2"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:background="#fff">
-		        
-		        <include layout="@layout/find_list" />
-		    </LinearLayout>
-	
-		    
-		    
+            <!-- findlist -->
+			<GridView
+			    android:id="@+id/gview"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:numColumns="2"
+			    android:stretchMode="columnWidth" >
+			</GridView>
+			
+			
         </LinearLayout>
         
-    </ScrollView>
     
 
 
