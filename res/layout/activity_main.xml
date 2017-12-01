@@ -37,7 +37,11 @@
 		        android:layout_height="wrap_content"
 		        android:background="#fff">
 			
-		        <include layout="@layout/banner" />
+		        <fragment
+			        android:id="@+id/fragment_cycle_viewpager_content"
+			        android:name="cn.androiddevelop.cycleviewpager.lib.CycleViewPager"
+			        android:layout_width="match_parent"
+			        android:layout_height="200dp"/>
 		    </LinearLayout>
 	
 		    <!-- 标签 -->
