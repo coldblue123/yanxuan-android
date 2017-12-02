@@ -15,7 +15,17 @@
    |---show_com_list.xml 显示分类商品组件
     
     
-    
+ 
+商品详细相关界面
+	goods_more_index.xml  --主页
+	goods_more_bottom.xml --底部导航
+	goods_more_label1.xml
+	goods_more_label2.xml
+	goods_more_label3.xml
+	goods_more_label4.xml
+	goods_more_label5.xml
+	goods_more_label6.xml --以上为静态标签
+      
     
     
     

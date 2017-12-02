@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+    	android:orientation="horizontal"
+        android:background="@drawable/top_solid" 
+    	android:gravity="center"
+    	android:paddingTop="1dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/right_solid"
+            android:gravity="center"
+            android:orientation="vertical" >
+          <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/god_btm_1" />
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/right_solid"
+            android:layout_weight="1"
+             android:gravity="center"
+            android:orientation="vertical" >
+          <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/god_btm_2" />
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/right_solid"
+            android:layout_weight="1"
+             android:gravity="center"
+            android:orientation="vertical" >
+          <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/god_btm_3" />
+
+        </LinearLayout>
+        
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#2F2F2F"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="立即购买" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#fff"
+            android:background="#B3282B"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="加入购物车" />
+        
+    </LinearLayout>
+    
+</LinearLayout>

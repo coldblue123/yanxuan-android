@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="5dp"
+    android:background="@drawable/bottom_solid2" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textColor="#303030"
+        android:textSize="16sp"
+        android:text="积分:" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView1"
+        android:ellipsize="end"
+        android:paddingLeft="5dp"
+        android:singleLine="true"
+        android:text="购买最高获得5积分"
+        android:textColor="#303030"
+        android:textSize="14sp" >
+
+    </TextView>
+
+</RelativeLayout>
