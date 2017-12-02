@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="5dp"
+    android:background="@drawable/bottom_solid2" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textColor="#303030"
+        android:textSize="16sp"
+        android:text="一个促销:" />
+
+    <ImageView
+        android:id="@+id/goods_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/goods_right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/goods_right"
+        android:ellipsize="end"
+		android:singleLine="true" 
+		android:textColor="#e68f26"
+		android:textSize="14sp"
+		android:paddingLeft="5dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="良心制作, 109爆款满3件8折, 还有你想不到的惊喜" >
+    </TextView>
+
+</RelativeLayout>
