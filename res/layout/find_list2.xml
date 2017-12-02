@@ -98,13 +98,13 @@
                 	android:background="#f4f4f4"
                     android:orientation="vertical" >
                     <ImageView
-                        android:id="@+id/imageView1"
+                        android:id="@+id/imageView2"
                         android:layout_width="wrap_content"
                         android:layout_height="160dp"
                         android:layout_gravity="center"
                         android:src="@drawable/test1" />
 					<TextView
-                        android:id="@+id/lables"
+                        android:id="@+id/lables2"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:text="用心之作上乘之选"
@@ -138,7 +138,7 @@
 				    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical" 

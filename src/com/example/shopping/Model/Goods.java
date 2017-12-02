@@ -8,8 +8,6 @@ import java.util.List;
 
 import com.example.shopping.Common.CommonMath;
 
-import android.content.Context;
-
 //商品表
 public class Goods {
 	int ID;
@@ -22,6 +20,7 @@ public class Goods {
 	String Classify;// 分类名
 	String Intro;// 简介
 	String Image;// 图片
+	int VistNum = 0; // 访问量
 
 	public Goods() {
 	}
@@ -41,40 +40,70 @@ public class Goods {
 		Image = image;
 	}
 
+	public int getVistNum() {
+		return VistNum;
+	}
+
+	public void setVistNum(int vistNum) {
+		VistNum = vistNum;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
 	// ***************公共方法***************************
 	// 增加忽略
 
 	// 模糊(商品名称或类别名\商家名)查询列表
-	public static List<Goods> selectGoodsByNameOrClass(List<Goods> list, String  findStr) {
-		List<Goods> relist=new ArrayList<Goods>();
+	public static List<Goods> selectGoodsByNameOrClass(List<Goods> list,
+			String findStr) {
+		List<Goods> relist = new ArrayList<Goods>();
 		for (Goods goods : list) {
-			if (goods.Name.contains(findStr)||goods.Classify.contains(findStr)
-					||goods.MerchantName.contains(findStr)) {
+			if (goods.Name.contains(findStr)
+					|| goods.Classify.contains(findStr)
+					|| goods.MerchantName.contains(findStr)) {
 				relist.add(goods); // 添加数据给list集合
 			}
 		}
 		return relist;
 	}
 
-	// 模糊查询列表
-		public static ArrayList<HashMap<String, Object>> getListToHashMap(List<Goods> list) {
-			ArrayList<HashMap<String, Object>> list2=new ArrayList<HashMap<String,Object>>();
-			for (Goods goods : list) {
-					// 添加数据给map集合
-					HashMap<String, Object> map1 = new HashMap<String, Object>(); // 定义map集合(数组），一个map集合对应ListView的一栏。
-					map1.put("MerchantName", goods.MerchantName);
-					map1.put("Price", goods.Price);
-					map1.put("PriceStr","¥ " +goods.Price);
-					map1.put("Name", goods.Name);
-					map1.put("UintName", goods.Uint+"    "+goods.Name);
-					map1.put("Classify", goods.Classify);
-					map1.put("Intro", goods.Intro);
-					map1.put("Image",CommonMath.getImageResourceID(goods.Image));
-					// -----把map集合放进list集合里---------
-					list2.add(map1); // 添加数据给list集合
-				}
-			return list2;
+	// 模糊(商品名称或类别名\商家名)查询列表
+	public static List<Goods> selectGoodsByTop(List<Goods> list, int findNum) {
+		List<Goods> relist = new ArrayList<Goods>();
+		if (findNum > list.size()) {
+			findNum = list.size();
 		}
+		relist = list.subList(0, findNum);
+		return relist;
+	}
+
+	// 模糊查询列表
+	public static ArrayList<HashMap<String, Object>> getListToHashMap(
+			List<Goods> list) {
+		ArrayList<HashMap<String, Object>> list2 = new ArrayList<HashMap<String, Object>>();
+		for (Goods goods : list) {
+			// 添加数据给map集合
+			HashMap<String, Object> map1 = new HashMap<String, Object>(); // 定义map集合(数组），一个map集合对应ListView的一栏。
+			map1.put("MerchantName", goods.MerchantName);
+			map1.put("Price", goods.Price);
+			map1.put("PriceStr", "¥ " + goods.Price);
+			map1.put("Name", goods.Name);
+			map1.put("UintName", goods.Uint + "    " + goods.Name);
+			map1.put("Classify", goods.Classify);
+			map1.put("Intro", goods.Intro);
+			map1.put("Image", CommonMath.getImageResourceID(goods.Image));
+			// -----把map集合放进list集合里---------
+			list2.add(map1); // 添加数据给list集合
+		}
+		return list2;
+	}
+
 	// 查询单个记录
 	public Goods selectGoodsByID(List<Goods> list, int id) {
 		Goods l = new Goods();
@@ -126,7 +155,7 @@ public class Goods {
 	}
 
 	// 修改一条记录通过id
-	public boolean updateGoodsByID(List<Goods> list, int id, String name) {
+	public boolean updateNameGoodsByID(List<Goods> list, int id, String name) {
 		boolean b = false;
 		for (Goods goods : list) {
 			if (goods.ID == id) {

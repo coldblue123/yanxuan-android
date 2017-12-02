@@ -1,0 +1,6 @@
+后台  
+	gridView.setVerticalSpacing(10);//控件间垂直间隔
+	gridView.setHorizontalSpacing(15);//控件间水平间隔
+	gridView.setNumColumns(2);//设置gridview列
+	gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);//设置gridview中的条目以什么缩放模式去填充空间
+	gridView.setSelector(R.color.selectorColor);//设置选择后颜色

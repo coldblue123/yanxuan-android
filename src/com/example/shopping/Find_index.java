@@ -6,14 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shopping.Model.Goods;
@@ -24,13 +27,7 @@ public class Find_index extends Activity {
 	String findEditStr;// 搜索框传的值
 	private GridView gview;
 	ArrayList<HashMap<String, Object>> list;// 获取列表数据
-	private SimpleAdapter sim_adapter;
 	Quanju q; // 定义数据表
-	// 图片封装为一个数组
-	private int[] icon = { R.drawable.test1, R.drawable.test1,
-			R.drawable.test1, R.drawable.test1, R.drawable.test1 };
-	private String[] price = { "230", "230", "230", "11", "44" };
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,26 +36,23 @@ public class Find_index extends Activity {
 		// 接受MainActivity首页搜索框传来的值
 		findEditStr = getIntent().getStringExtra("findEditStr");
 		q = (Quanju) getApplicationContext();// 获取所有表数据
-		initdata();// 列表数据初始
 		setSimple();// 填充数据
+		//搜索事件
+		 btFindGo();
 	}
 
-	/**
-	 * 本方法作用：准备数据 初始化数据
-	 * */
-	public void initdata() {
-		// 模糊查询 list转化为HashMap//不要用static
-		list = Goods.getListToHashMap(Goods.selectGoodsByNameOrClass(
-				q.GoodsList, findEditStr));
-		// Toast.makeText(getApplicationContext(),
-		// "数组："+findEditStr+"|"+Goods.selectGoodsByNameOrClass(q.GoodsList,findEditStr).size(),
-		// 1).show();
-	}
+
+	
+	
+	//************按钮事件**************************
 
 	/**
 	 * 本方法作用：ListView与SimpleAdatper结合实现列表填充数据
 	 */
 	public void setSimple() {
+		// 模糊查询 list转化为HashMap//不要用static
+				list = Goods.getListToHashMap(Goods.selectGoodsByNameOrClass(
+						q.GoodsList, findEditStr));
 		SimpleAdapter adapter = new SimpleAdapter // 调用SimpleAdapter适配器
 		(Find_index.this, // 当前类
 				list, // 选项所有数据
@@ -105,6 +99,21 @@ public class Find_index extends Activity {
 	
 	
 	
+	// 主页搜索事件
+	public void btFindGo() {
+		TextView bt = (TextView) Find_index.this.findViewById(R.id.find);
+		bt.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView tv = (TextView) Find_index.this
+						.findViewById(R.id.findText);
+				findEditStr= tv.getText().toString().trim();// 获取输入框值
+				// 跳转到第二个页面
+				setSimple();// 填充数据
+			}
+		});
+
+	}
 	
 	
 

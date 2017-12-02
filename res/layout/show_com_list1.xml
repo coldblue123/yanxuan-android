@@ -65,7 +65,7 @@
         	android:padding="10dp">
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#303030"
@@ -78,7 +78,7 @@
                 android:paddingTop="4dp" >
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/price4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#7f7f7f"
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/price"
+                    android:layout_toRightOf="@+id/price7"
                     android:src="@drawable/show_com_2" />
 
             </RelativeLayout>
@@ -120,7 +120,7 @@
         	android:padding="10dp">
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#303030"
@@ -133,7 +133,7 @@
                 android:paddingTop="4dp" >
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/price5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#7f7f7f"
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/price"
+                    android:layout_toRightOf="@+id/price5"
                     android:src="@drawable/show_com_3" />
 
             </RelativeLayout>
@@ -163,7 +163,7 @@
         	android:padding="10dp">
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#303030"
@@ -176,7 +176,7 @@
                 android:paddingTop="4dp" >
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/price6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#7f7f7f"
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/price"
+                    android:layout_toRightOf="@+id/price6"
                     android:src="@drawable/show_com_4" />
 
             </RelativeLayout>
