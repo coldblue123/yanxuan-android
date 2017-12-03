@@ -4,30 +4,34 @@
     android:layout_height="wrap_content"
     android:background="#fff"
     android:orientation="vertical" >
-    
-	<!-- 行 -->
+
+    <!-- 行 -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:paddingTop="1dp"
-        android:background="@drawable/top_solid">
-		
+        android:background="@drawable/top_solid"
+        android:paddingTop="1dp" >
+
         <!-- 列 -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
             android:background="@drawable/right_solid"
-        	android:padding="10dp">
+            android:onClick="gotoFindIndex"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:tag="舌尖" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="舌尖上特产推荐"
                 android:textColor="#303030"
-                android:textSize="16dp"
-                android:text="舌尖上特产推荐" />
+                android:textSize="16dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -38,10 +42,10 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#7f7f7f"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="29元起" />
+                    android:text="29元起"
+                    android:textColor="#7f7f7f" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -50,27 +54,29 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/price"
                     android:src="@drawable/show_com_1" />
-
             </RelativeLayout>
-
         </LinearLayout>
         <!-- 列 -->
-        
+
+
         <!-- 列 -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
-        	android:padding="10dp">
+            android:onClick="gotoFindIndex"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:tag="星星" >
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="来自星星的零食"
                 android:textColor="#303030"
-                android:textSize="16dp"
-                android:text="来自星星的零食" />
+                android:textSize="16dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -81,10 +87,10 @@
                     android:id="@+id/price4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#7f7f7f"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="29元起" />
+                    android:text="29元起"
+                    android:textColor="#7f7f7f" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -93,39 +99,41 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/price7"
                     android:src="@drawable/show_com_2" />
-
             </RelativeLayout>
-
         </LinearLayout>
         <!-- 列 -->
-        
-        
+
     </LinearLayout>
-	<!-- 行 -->
-	
-	<!-- 行 -->
+    <!-- 行 -->
+
+
+    <!-- 行 -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:paddingTop="1dp"
-        android:background="@drawable/top_solid">
-		
+        android:background="@drawable/top_solid"
+        android:paddingTop="1dp" >
+
         <!-- 列 -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
             android:background="@drawable/right_solid"
-        	android:padding="10dp">
+            android:onClick="gotoFindIndex"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:tag="热剧" >
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="来自热剧的零食"
                 android:textColor="#303030"
-                android:textSize="16dp"
-                android:text="来自热剧的零食" />
+                android:textSize="16dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -136,10 +144,10 @@
                     android:id="@+id/price5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#7f7f7f"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="29元起" />
+                    android:text="29元起"
+                    android:textColor="#7f7f7f" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -148,27 +156,29 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/price5"
                     android:src="@drawable/show_com_3" />
-
             </RelativeLayout>
-
         </LinearLayout>
         <!-- 列 -->
-        
+
+
         <!-- 列 -->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
-        	android:padding="10dp">
+            android:onClick="gotoFindIndex"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:tag="穿越" >
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="来自穿越的零食"
                 android:textColor="#303030"
-                android:textSize="16dp"
-                android:text="来自穿越的零食" />
+                android:textSize="16dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -179,10 +189,10 @@
                     android:id="@+id/price6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#7f7f7f"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="29元起" />
+                    android:text="29元起"
+                    android:textColor="#7f7f7f" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -191,15 +201,11 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/price6"
                     android:src="@drawable/show_com_4" />
-
             </RelativeLayout>
-
         </LinearLayout>
         <!-- 列 -->
-        
-        
+
     </LinearLayout>
-	<!-- 行 -->
-	
-	
+    <!-- 行 -->
+
 </LinearLayout>

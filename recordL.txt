@@ -4,3 +4,9 @@
 	gridView.setNumColumns(2);//设置gridview列
 	gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);//设置gridview中的条目以什么缩放模式去填充空间
 	gridView.setSelector(R.color.selectorColor);//设置选择后颜色
+	
+	
+	String zifu=getIntent().getStringExtra("字符串");            //接收字符串数据
+	int zs=getIntent().getExtras().getInt("整数");	              //接收整数数据
+	double xs=getIntent().getExtras().getDouble("小数");	 //接收小数数据
+	

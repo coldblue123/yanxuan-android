@@ -40,6 +40,78 @@ public class Goods {
 		Image = image;
 	}
 
+	public int getSort() {
+		return Sort;
+	}
+
+	public void setSort(int sort) {
+		Sort = sort;
+	}
+
+	public String getMerchantName() {
+		return MerchantName;
+	}
+
+	public void setMerchantName(String merchantName) {
+		MerchantName = merchantName;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public double getPrice() {
+		return Price;
+	}
+
+	public void setPrice(double price) {
+		Price = price;
+	}
+
+	public String getUint() {
+		return Uint;
+	}
+
+	public void setUint(String uint) {
+		Uint = uint;
+	}
+
+	public String getClassify() {
+		return Classify;
+	}
+
+	public void setClassify(String classify) {
+		Classify = classify;
+	}
+
+	public String getIntro() {
+		return Intro;
+	}
+
+	public void setIntro(String intro) {
+		Intro = intro;
+	}
+
+	public int getClassifyID() {
+		return ClassifyID;
+	}
+
+	public void setClassifyID(int classifyID) {
+		ClassifyID = classifyID;
+	}
+
+	public String getImage() {
+		return Image;
+	}
+
+	public void setImage(String image) {
+		Image = image;
+	}
+
 	public int getVistNum() {
 		return VistNum;
 	}
@@ -73,7 +145,7 @@ public class Goods {
 		return relist;
 	}
 
-	// 模糊(商品名称或类别名\商家名)查询列表
+	// 返回列表投几条数据
 	public static List<Goods> selectGoodsByTop(List<Goods> list, int findNum) {
 		List<Goods> relist = new ArrayList<Goods>();
 		if (findNum > list.size()) {
@@ -83,7 +155,7 @@ public class Goods {
 		return relist;
 	}
 
-	// 模糊查询列表
+	// 数据组装对应模型
 	public static ArrayList<HashMap<String, Object>> getListToHashMap(
 			List<Goods> list) {
 		ArrayList<HashMap<String, Object>> list2 = new ArrayList<HashMap<String, Object>>();
@@ -106,7 +178,7 @@ public class Goods {
 	}
 
 	// 查询单个记录
-	public Goods selectGoodsByID(List<Goods> list, int id) {
+	public static Goods selectGoodsByID(List<Goods> list, int id) {
 		Goods l = new Goods();
 		for (Goods goods : list) {
 			if (goods.ID == id) {

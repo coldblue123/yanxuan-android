@@ -123,14 +123,13 @@
 		    
 		    <!-- 推荐商品列表 -->
             <LinearLayout
+                android:id="@+id/fujin_btnlist_goods"
 		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal">
 		        
-                <TextView 
-                    android:layout_width="match_parent"
-		        	android:layout_height="wrap_content"
-                    android:text="这里导入数据"
-                    android:gravity="center"/>
+               
                 <!-- 这里放推荐商品 -->
 		    </LinearLayout>
 		    

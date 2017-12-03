@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 		// 分类显示的事件--跳转到搜索页面
 
 		// 热点推荐动态加载
-		this.addview();
+		this.addGridView();
 		// 页面底部导航的跳转方法
 		routerPageFun();
 		// 首页搜索事件初始化加载
@@ -132,7 +132,7 @@ public class MainActivity extends Activity {
 	// *********按钮事件与方法******************
 
 	// 主页搜索事件
-	public void btFindGo() {
+	private void btFindGo() {
 		TextView bt = (TextView) MainActivity.this.findViewById(R.id.find);
 		bt.setOnClickListener(new OnClickListener() {
 			@Override
@@ -147,6 +147,15 @@ public class MainActivity extends Activity {
 			}
 		});
 
+	}
+
+	// 跳转搜索页面----一定不要私有,界面才能找到
+	public void gotoFindIndex(View view) {
+		String findEditStr = view.getTag().toString();//通过tag取值
+		// 跳转到第二个页面
+		intent = new Intent(MainActivity.this, Find_index.class);
+		intent.putExtra("findEditStr", findEditStr); // 传递字符串数据
+		startActivity(intent);
 	}
 
 	@SuppressLint("NewApi")
@@ -207,15 +216,9 @@ public class MainActivity extends Activity {
 	};
 
 	// 添加视图
-	private void addview() {
+	private void addGridView() {
 		// 填充容器定位
 		ll = (LinearLayout) findViewById(R.id.fujin_btnlist_tl);
-		// 动态加载数据
-		this.addTwoClassify();
-	}
-
-	// 设置填充GridView数据添加到界面
-	private void addTwoClassify() {
 		// 设置GridView属性
 		gridView = new MyGridView(this);// 注意这里使用的是MyGridView,如果使用GridView的话，只会显示一行多一点，第二行显示不完全，使用MyGridView的话，能够完全显示出来。commend
 		gridView.setNumColumns(2);
@@ -239,42 +242,45 @@ public class MainActivity extends Activity {
 		(MainActivity.this, // 当前类
 				data_list, // 选项所有数据
 				R.layout.find_list_item, // 与数据匹配的布局
-				new String[] { "GoodsID","Image", "Intro", "UintName", "PriceStr" }, // 字符串数组，里面放参数名。
-				new int[] { R.id.lable_GoodsID, R.id.image_show, R.id.lable_Intro, R.id.lable_show,
-						R.id.price_show } // int数组，里面放数据的控件id，位置要与参数名一一对应。
-		)
-
-		/*{
+				new String[] { "GoodsID", "Image", "Intro", "UintName",
+						"PriceStr" }, // 字符串数组，里面放参数名。
+				new int[] { R.id.lable_GoodsID, R.id.image_show,
+						R.id.lable_Intro, R.id.lable_show, R.id.price_show } // int数组，里面放数据的控件id，位置要与参数名一一对应。
+		) {
 			// SimpleAdapter每条记录的事件
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
-				 View  view =super.getView(position, convertView, parent);
-				 TextView lableGoods= (TextView)view.findViewById(R.id.lable_GoodsID);
-				 final int goodsID=Integer.parseInt(lableGoods.getText().toString());//id转int 需要最终变量
-			     convertView.setOnClickListener(new OnClickListener() {
+				View view = super.getView(position, convertView, parent);
+				TextView lableGoods = (TextView) view
+						.findViewById(R.id.lable_GoodsID);
+				final int goodsID = Integer.parseInt(lableGoods.getText()
+						.toString());// id转int 需要最终变量
+				LinearLayout lineargoods = (LinearLayout) view
+						.findViewById(R.id.linear_goods);
+				lineargoods.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						intent = new Intent(MainActivity.this, Goods_more_index.class);
+						intent = new Intent(MainActivity.this,
+								Goods_more_index.class);
 						intent.putExtra("goodsID", goodsID); // 传递字符串数据
 						startActivity(intent);
 					}
-				});		 
+				});
 				return view;
 			}
-		}*/;
+		};
 
 		gridView.setAdapter(adapter); // 把适配器设置给ListView控件
-		// 处理选择结果 ListView每行的单击事件
-		gridView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				Toast.makeText(getApplicationContext(), "你选择了" + position, 1)
-						.show();
-
-			}
-		});
-
+		/*
+		 * // 处理选择结果 ListView每行的单击事件 gridView.setOnItemClickListener(new
+		 * OnItemClickListener() {
+		 * 
+		 * @Override public void onItemClick(AdapterView<?> parent, View view,
+		 * int position, long id) { Toast.makeText(getApplicationContext(),
+		 * "你选择了" + position, 1) .show();
+		 * 
+		 * } });
+		 */
 	}
 
 }
