@@ -31,7 +31,7 @@ public class Goods_more_index extends Activity {
 		// ÂÖ²¥Í¼Í¼Æ¬
 		private int[] imageUrls = {
 				R.drawable.banner_test,
-				R.drawable.banner_test,
+				R.drawable.banner_test1,
 				R.drawable.banner_test,
 				R.drawable.banner_test,
 				R.drawable.banner_test
@@ -40,7 +40,6 @@ public class Goods_more_index extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.goods_more_index);
-		
 		// ÂÖ²¥Í¼³õÊ¼»¯
 		initialize();
 	}

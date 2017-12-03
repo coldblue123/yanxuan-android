@@ -33,7 +33,7 @@ public class CommonMath extends Activity{
 			String a = field.getName();
 			r_id = field.getInt(a);
 		} catch (Exception e) {
-			r_id = R.drawable.a0;
+			r_id = R.drawable.noproduct;
 			Log.e("ERROR", "PICTURE NOT¡¡FOUND£¡");
 		}
 		return r_id;
@@ -50,7 +50,7 @@ public class CommonMath extends Activity{
 				r_ids.add( new Integer(getImageResourceID(str[i])));
 			}
 		} catch (Exception e) {
-			r_ids.add( new Integer(R.drawable.a0));
+			r_ids.add( new Integer(R.drawable.noproduct));
 			Log.e("ERROR", "PICTURE NOT¡¡FOUND£¡");
 		}
 		return r_ids;

@@ -57,8 +57,8 @@ public class Find_index extends Activity {
 		(Find_index.this, // 当前类
 				list, // 选项所有数据
 				R.layout.find_list_item, // 与数据匹配的布局
-				new String[] { "Image", "Intro", "UintName", "PriceStr" }, // 字符串数组，里面放参数名。
-				new int[] { R.id.image_show, R.id.lable_Intro, R.id.lable_show,
+				new String[] {"GoodsID","Image", "Intro", "UintName", "PriceStr" }, // 字符串数组，里面放参数名。
+				new int[] {R.id.lable_GoodsID, R.id.image_show, R.id.lable_Intro, R.id.lable_show,
 						R.id.price_show } // int数组，里面放数据的控件id，位置要与参数名一一对应。
 		)
 		/*

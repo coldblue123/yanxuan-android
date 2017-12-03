@@ -34,7 +34,9 @@
     
     
    
-    
+   
+    //不显示不占空间
+    android:visibility="gone"
     
     // 超出换行
     android:ellipsize="end"

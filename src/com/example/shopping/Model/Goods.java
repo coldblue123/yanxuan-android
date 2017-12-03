@@ -97,6 +97,7 @@ public class Goods {
 			map1.put("UintName", goods.Uint + "    " + goods.Name);
 			map1.put("Classify", goods.Classify);
 			map1.put("Intro", goods.Intro);
+			map1.put("GoodsID", goods.ID);
 			map1.put("Image", CommonMath.getImageResourceID(goods.Image));
 			// -----把map集合放进list集合里---------
 			list2.add(map1); // 添加数据给list集合

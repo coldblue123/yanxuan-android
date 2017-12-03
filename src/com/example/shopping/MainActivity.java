@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -44,12 +46,12 @@ public class MainActivity extends Activity {
 	private List<ADInfo> infos = new ArrayList<ADInfo>();
 	private CycleViewPager cycleViewPager;
 	// 轮播图图片
-	private int[] imageUrls = { R.drawable.banner_test, R.drawable.banner_test,
-			R.drawable.banner_test, };
+	private int[] imageUrls = { R.drawable.banner_test,
+			R.drawable.banner_test1, R.drawable.banner_test, };
 
 	private ImageView imagv_1, imagv_2, imagv_3, imagv_4;
 	private TextView textV_1, textV_2, textV_3, textV_4;
-
+	// ***********自定义变量********
 	Quanju q; // 定义全局类
 	private GridView gridView;
 	private LinearLayout ll;
@@ -61,17 +63,17 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		q = (Quanju) getApplicationContext();// 获取所有表数据
 		q.Init();// 初始化数
-		// 分类显示的事件
+		// 分类显示的事件--跳转到搜索页面
 
 		// 热点推荐动态加载
 		this.addview();
-
 		// 页面底部导航的跳转方法
 		routerPageFun();
-		// 搜索事件初始化加载
+		// 首页搜索事件初始化加载
 		btFindGo();
 		// 初始化banner轮播图
 		initialize();
+
 	}
 
 	@Override
@@ -126,8 +128,6 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
-	
-	
 
 	// *********按钮事件与方法******************
 
@@ -208,9 +208,9 @@ public class MainActivity extends Activity {
 
 	// 添加视图
 	private void addview() {
-		//填充容器定位
+		// 填充容器定位
 		ll = (LinearLayout) findViewById(R.id.fujin_btnlist_tl);
-		//动态加载数据
+		// 动态加载数据
 		this.addTwoClassify();
 	}
 
@@ -227,6 +227,7 @@ public class MainActivity extends Activity {
 		ll.addView(gridView, new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 	}
+
 	/**
 	 * 本方法作用：GridView与SimpleAdatper结合实现列表填充数据--与列事件
 	 */
@@ -238,33 +239,30 @@ public class MainActivity extends Activity {
 		(MainActivity.this, // 当前类
 				data_list, // 选项所有数据
 				R.layout.find_list_item, // 与数据匹配的布局
-				new String[] { "Image", "Intro", "UintName", "PriceStr" }, // 字符串数组，里面放参数名。
-				new int[] { R.id.image_show, R.id.lable_Intro, R.id.lable_show,
+				new String[] { "GoodsID","Image", "Intro", "UintName", "PriceStr" }, // 字符串数组，里面放参数名。
+				new int[] { R.id.lable_GoodsID, R.id.image_show, R.id.lable_Intro, R.id.lable_show,
 						R.id.price_show } // int数组，里面放数据的控件id，位置要与参数名一一对应。
 		)
-		/*
-		 * { //SimpleAdapter每条记录的事件
-		 * 
-		 * @Override public View getView(final int position, View convertView,
-		 * ViewGroup parent) { // TODO Auto-generated method stub View view =
-		 * super.getView(position, convertView, parent); Button bt1 =
-		 * (Button)view.findViewById(R.id.button1); // 找view的button1 final
-		 * TextView tv = (TextView)view.findViewById(R.id.text2); //
-		 * 找view的button1 bt1.setOnClickListener(new OnClickListener() {
-		 * 
-		 * @Override public void onClick(View v) { if (position==0) {
-		 * Toast.makeText(getApplicationContext(), "第一列菜数目加一", 1) .show(); } if
-		 * (position==1) { Toast.makeText(getApplicationContext(), tv.getText(),
-		 * 1) .show(); tv.setText("红烧肉"); }
-		 * 
-		 * } }); return view;
-		 * 
-		 * }
-		 * 
-		 * }
-		 */;
-		// gridView = (GridView) findViewById(R.id.gview_index2);//
-		// 找ListView控件new
+
+		/*{
+			// SimpleAdapter每条记录的事件
+			@Override
+			public View getView(int position, View convertView, ViewGroup parent) {
+				 View  view =super.getView(position, convertView, parent);
+				 TextView lableGoods= (TextView)view.findViewById(R.id.lable_GoodsID);
+				 final int goodsID=Integer.parseInt(lableGoods.getText().toString());//id转int 需要最终变量
+			     convertView.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						intent = new Intent(MainActivity.this, Goods_more_index.class);
+						intent.putExtra("goodsID", goodsID); // 传递字符串数据
+						startActivity(intent);
+					}
+				});		 
+				return view;
+			}
+		}*/;
+
 		gridView.setAdapter(adapter); // 把适配器设置给ListView控件
 		// 处理选择结果 ListView每行的单击事件
 		gridView.setOnItemClickListener(new OnItemClickListener() {
