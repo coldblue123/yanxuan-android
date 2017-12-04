@@ -189,20 +189,35 @@ public class Goods {
 		return l;
 	}
 
-	// 排序通过属性排序
-	public List<Goods> sortGoodsListBySort(List<Goods> list) {
+	// 排序通过属性排序asc升1 des降序0
+	public static List<Goods> sortGoodsListBySort(List<Goods> list,final int ascOrdes ) {
 		Comparator<Goods> comparator = new Comparator<Goods>() {
 			public int compare(Goods s1, Goods s2) {
-				// 先排序号
-				if (s1.Sort != s2.Sort) {
-					return s1.Sort - s2.Sort;
-				} else {
-					// 年龄相同则按姓名排序
-					if (!s1.Name.equals(s2.Name)) {
-						return s1.Name.compareTo(s2.Name);
+				if (ascOrdes==1) {
+					// 先排序号
+					if (s1.Sort != s2.Sort) {
+						return s1.Sort - s2.Sort;
 					} else {
-						// 姓名也相同则按学号排序
-						return s1.ID - s2.ID;
+						// 年龄相同则按姓名排序
+						if (!s1.Name.equals(s2.Name)) {
+							return s1.Name.compareTo(s2.Name);
+						} else {
+							// 姓名也相同则按学号排序
+							return s1.ID - s2.ID;
+						}
+					}
+				}else {
+					// 先排序号
+					if (s1.Sort != s2.Sort) {
+						return s2.Sort - s1.Sort;
+					} else {
+						// 年龄相同则按姓名排序
+						if (!s1.Name.equals(s2.Name)) {
+							return s1.Name.compareTo(s2.Name);
+						} else {
+							// 姓名也相同则按学号排序
+							return s2.ID - s1.ID;
+						}
 					}
 				}
 			}

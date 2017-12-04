@@ -2,25 +2,137 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2" >
+    android:background="#f4f4f4"
+    tools:context=".MainActivity" >
+
+    <!-- 搜索 -->
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" 
-        android:layout_alignParentBottom="true"
-        android:id="@+id/ly_show_bottom">
-        <include layout="@layout/bottom"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="97dp"
-        android:layout_marginTop="157dp"
-        android:text="2" />
+        android:layout_alignParentTop="true" >
+
+        <include layout="@layout/find" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ly_show_bottom"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- banner -->
+
+            <fragment
+                android:id="@+id/fragment_cycle_viewpager_content"
+                android:name="cn.androiddevelop.cycleviewpager.lib.CycleViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <!-- 标签 -->
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:paddingTop="3dp" >
+
+                <include layout="@layout/lable" />
+            </LinearLayout>
+
+            <!-- 标签2 -->
+
+            <!-- 热门产品分区 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:gravity="center"
+                android:onClick="gotoFindIndex"
+                android:tag="星星" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="热门产品推荐"
+                    android:textColor="#2f2f2f"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/right" />
+            </LinearLayout>
+
+            <!-- 显示推荐商品一 -->
+
+            <LinearLayout
+                android:id="@+id/fujin_btnlist_tl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal" >
+            </LinearLayout>
+           <!-- 特色产品 -->
+               <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:gravity="center"
+                android:onClick="gotoFindIndex"
+                android:tag="" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="特色产品推荐"
+                    android:textColor="#2f2f2f"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/right" />
+            </LinearLayout>
+
+            <!-- 显示推荐商品一 -->
+
+            <LinearLayout
+                android:id="@+id/fujin_btnlist_t2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal" >
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ly_show_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <include layout="@layout/bottom" />
+    </LinearLayout>
 
 </RelativeLayout>

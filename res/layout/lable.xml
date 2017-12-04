@@ -36,13 +36,13 @@
             android:gravity="center" >
 
             <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/imageView6"
                 android:layout_width="16dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/gou" />
             
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#434343"
@@ -59,13 +59,13 @@
             android:gravity="center" >
 
             <ImageView
-                android:id="@+id/imageView1"
+                android:id="@+id/imageView3"
                 android:layout_width="16dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/gou" />
             
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#434343"

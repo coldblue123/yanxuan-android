@@ -3,6 +3,8 @@ package com.example.shopping.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.shopping.R;
+
 import android.app.Application;
 
 public class Quanju extends Application {
@@ -15,9 +17,15 @@ public class Quanju extends Application {
 	public List<ShoppingCar> ShoppingCarList = new ArrayList<ShoppingCar>();
 	// 用户表
 	public List<User> UserList = new ArrayList<User>();
+	// 首页轮播图存储
+	public int[] bannerImageUrls;
 
 	// 初始化数据库
 	public void Init() {
+		//轮播图初始化
+		int[] imageUrls ={ R.drawable.banner_test,
+			R.drawable.banner_test1, R.drawable.banner_test };
+		bannerImageUrls=imageUrls;
 		//分类表初始化
 		if (ClassifyList.size()<=0) {
 			String[] ArrayClassify = { "舌尖上的特产", "来自星星零食", "来自热剧的零食", "来自穿越的零食" };
@@ -112,5 +120,4 @@ public class Quanju extends Application {
 
 	}
 
-	
 }

@@ -42,9 +42,7 @@ public class Goods_more_index extends Activity {
 	private List<ADInfo> infos = new ArrayList<ADInfo>();
 	private CycleViewPager cycleViewPager;
 	// 轮播图图片
-	private int[] imageUrls = { R.drawable.banner_test,
-			R.drawable.banner_test1, R.drawable.banner_test,
-			R.drawable.banner_test, R.drawable.banner_test };
+	private int[] imageUrls ;
 
 	// ***自定义字段****
 	int goodsID;// 商品id
@@ -60,6 +58,7 @@ public class Goods_more_index extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.goods_more_index);
 		q = (Quanju) getApplicationContext();// 获取所有表数据
+		imageUrls=q.bannerImageUrls;
 		// 接受MainActivity首页搜索框传来的值
 		goodsID = getIntent().getExtras().getInt("goodsID");
 		goodsModel = Goods.selectGoodsByID(q.GoodsList, goodsID);
@@ -242,6 +241,16 @@ public class Goods_more_index extends Activity {
 		gridView.setAdapter(adapter); // 把适配器设置给ListView控件
 	}
 
+
+	// 跳转搜索页面----一定不要私有,界面才能找到
+	public void gotoFindIndex(View view) {
+		String findEditStr = view.getTag().toString();// 通过tag取值
+		// 跳转到第二个页面
+		intent = new Intent(Goods_more_index.this, Find_index.class);
+		intent.putExtra("findEditStr", findEditStr); // 传递字符串数据
+		startActivity(intent);
+	}
+	
 	// 添加购物车监听事件
 
 }

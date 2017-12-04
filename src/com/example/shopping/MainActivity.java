@@ -48,8 +48,7 @@ public class MainActivity extends Activity {
 	private List<ADInfo> infos = new ArrayList<ADInfo>();
 	private CycleViewPager cycleViewPager;
 	// 轮播图图片
-	private int[] imageUrls = { R.drawable.banner_test,
-			R.drawable.banner_test1, R.drawable.banner_test, };
+	private int[] imageUrls;
 
 	private ImageView imagv_1, imagv_2, imagv_3, imagv_4;
 	private TextView textV_1, textV_2, textV_3, textV_4;
@@ -65,6 +64,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		q = (Quanju) getApplicationContext();// 获取所有表数据
 		q.Init();// 初始化数
+		imageUrls=q.bannerImageUrls;
 		// 热点推荐动态加载
 		this.addGridView();
 		// 页面底部导航的跳转方法
@@ -157,7 +157,7 @@ public class MainActivity extends Activity {
 		intent.putExtra("findEditStr", findEditStr); // 传递字符串数据
 		startActivity(intent);
 	}
-
+    //轮播图初始化
 	@SuppressLint("NewApi")
 	private void initialize() {
 
