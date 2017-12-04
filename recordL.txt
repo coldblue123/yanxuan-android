@@ -1,12 +1,16 @@
 后台  
+	代码设置控件样式
 	gridView.setVerticalSpacing(10);//控件间垂直间隔
 	gridView.setHorizontalSpacing(15);//控件间水平间隔
 	gridView.setNumColumns(2);//设置gridview列
 	gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);//设置gridview中的条目以什么缩放模式去填充空间
 	gridView.setSelector(R.color.selectorColor);//设置选择后颜色
 	
-	
+	页面传输接受数据
 	String zifu=getIntent().getStringExtra("字符串");            //接收字符串数据
 	int zs=getIntent().getExtras().getInt("整数");	              //接收整数数据
 	double xs=getIntent().getExtras().getDouble("小数");	 //接收小数数据
+	
+	轮播图注意项
+	requestDisallowInterceptTouchEvent（true）方法是用来子View告诉父容器不要拦截我们的事件的
 	

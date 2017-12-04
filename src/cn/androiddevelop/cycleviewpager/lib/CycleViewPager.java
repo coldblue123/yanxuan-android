@@ -10,19 +10,16 @@ import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 
-import com.stevenhu.android.phone.bean.ADInfo;
 import com.example.shopping.R;
+import com.stevenhu.android.phone.bean.ADInfo;
 
 /**
  * 实现可循环，可轮播的viewpager
@@ -97,7 +94,8 @@ public class CycleViewPager extends Fragment implements OnPageChangeListener {
 	public void setData(List<ImageView> views, List<ADInfo> list, ImageCycleViewListener listener) {
 		setData(views, list, listener, 0);
 	}
-
+	
+	
 	/**
 	 * 初始化viewpager
 	 * 

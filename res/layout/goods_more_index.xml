@@ -4,8 +4,9 @@
     android:layout_height="match_parent"
     android:background="#f4f4f4"
     android:orientation="vertical" >
-    
-	<!-- 搜索 -->
+
+    <!-- 搜索 -->
+
     <LinearLayout
         android:id="@+id/find"
         android:layout_width="wrap_content"
@@ -15,125 +16,127 @@
 
         <include layout="@layout/find" />
     </LinearLayout>
-    
+
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/find"
-        android:layout_above="@+id/linearLayout1" >
+        android:layout_above="@+id/linearLayout1"
+        android:layout_below="@+id/find" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
-            
+
             <!-- 头部导航 -->
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/linearLayout_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:background="#ccc"
                 android:orientation="horizontal" >
 
-		        <!-- banner -->
-	        <fragment
-		        android:id="@+id/fragment_cycle_viewpager_content"
-		        android:name="cn.androiddevelop.cycleviewpager.lib.CycleViewPager"
-		        android:layout_width="match_parent"
-		        android:layout_height="280dp"/>
-		        
-		    </LinearLayout>
-		   
-            <!-- 标签1 -->
-            <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content">
-		        
-                <include layout="@layout/goods_more_label1"/>
-                
-		    </LinearLayout>
-		    
-            <!-- 标签2 -->
-            <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content">
-		        
-                <include layout="@layout/goods_more_label2"/>
-                
-		    </LinearLayout>
-		    
-            <!-- 标签3 -->
-            <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:layout_marginTop="10dp">
-		        
-                <include layout="@layout/goods_more_label3"/>
-                
-		    </LinearLayout>
-		    
-            <!-- 标签4 -->
-            <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content">
-		        
-                <include layout="@layout/goods_more_label4"/>
-                
-		    </LinearLayout>
-		    
-		    <!-- 标签5 -->
-            <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content">
-		        
-                <include layout="@layout/goods_more_label5"/>
-                
-		    </LinearLayout>
-		    
-            <!-- 标签6 -->
-            <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content">
-		        
-                <include layout="@layout/goods_more_label6"/>
-                
-		    </LinearLayout>
-		    
-            <!-- 热点推荐 -->
-		    <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="50dp"
-		        android:background="#fff"
-		        android:layout_marginTop="10dp"
-		        android:gravity="center">
-		        <TextView
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:textColor="#2f2f2f"
-		            android:textSize="16dp"
-		            android:text="热点推荐" />
+                <!-- banner -->
 
-		        <ImageView
-		            android:id="@+id/imageView1"
-		            android:layout_width="18dp"
-		            android:layout_height="wrap_content"
-		            android:src="@drawable/right"
-		            android:layout_marginLeft="5dp" />
-		    </LinearLayout>
-		    
-		    <!-- 推荐商品列表 -->
+                <fragment
+                    android:id="@+id/fragment_cycle_viewpager_content"
+                    android:name="cn.androiddevelop.cycleviewpager.lib.CycleViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                   />
+            </RelativeLayout>
+
+            <!-- 标签1 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/goods_more_label1" />
+            </LinearLayout>
+
+            <!-- 标签2 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/goods_more_label2" />
+            </LinearLayout>
+
+            <!-- 标签3 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <include layout="@layout/goods_more_label3" />
+            </LinearLayout>
+
+            <!-- 标签4 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/goods_more_label4" />
+            </LinearLayout>
+
+            <!-- 标签5 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/goods_more_label5" />
+            </LinearLayout>
+
+            <!-- 标签6 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/goods_more_label6" />
+            </LinearLayout>
+
+            <!-- 热点推荐 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="热点推荐"
+                    android:textColor="#2f2f2f"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/right" />
+            </LinearLayout>
+
+            <!-- 推荐商品列表 -->
+
             <LinearLayout
                 android:id="@+id/fujin_btnlist_goods"
-		        android:layout_width="match_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
-                android:orientation="horizontal">
-		        
-               
+                android:orientation="horizontal" >
+
                 <!-- 这里放推荐商品 -->
-		    </LinearLayout>
-		    
-            
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

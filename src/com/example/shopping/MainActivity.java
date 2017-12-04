@@ -12,9 +12,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
@@ -63,8 +65,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		q = (Quanju) getApplicationContext();// 获取所有表数据
 		q.Init();// 初始化数
-		// 分类显示的事件--跳转到搜索页面
-
 		// 热点推荐动态加载
 		this.addGridView();
 		// 页面底部导航的跳转方法
@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
 
 	// 跳转搜索页面----一定不要私有,界面才能找到
 	public void gotoFindIndex(View view) {
-		String findEditStr = view.getTag().toString();//通过tag取值
+		String findEditStr = view.getTag().toString();// 通过tag取值
 		// 跳转到第二个页面
 		intent = new Intent(MainActivity.this, Find_index.class);
 		intent.putExtra("findEditStr", findEditStr); // 传递字符串数据
@@ -197,6 +197,35 @@ public class MainActivity extends Activity {
 		cycleViewPager.setTime(2000);
 		// 设置圆点指示图标组居中显示，默认靠右
 		// cycleViewPager.setIndicatorCenter();
+		// 卷轴视图获取
+		mScrollView = (ScrollView) findViewById(R.id.scrollView1);
+		// 基础轮播视图-解决与ScrollView冲突
+		viewPager = cycleViewPager.getViewPager();
+		viewPager.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				int action = event.getAction();
+
+				if (action == MotionEvent.ACTION_DOWN) {
+					// 记录点击到ViewPager时候，手指的X坐标
+					mLastX = event.getX();
+				}
+				if (action == MotionEvent.ACTION_MOVE) {
+					// 超过阈值
+					if (Math.abs(event.getX() - mLastX) > 60f) {
+						// mRefreshLayout.setEnabled(false);//下拉刷新视图处理
+						mScrollView.requestDisallowInterceptTouchEvent(true);
+					}
+				}
+				if (action == MotionEvent.ACTION_UP) {
+					// 用户抬起手指，恢复父布局状态
+					mScrollView.requestDisallowInterceptTouchEvent(false);
+					// mRefreshLayout.setEnabled(true);//下拉刷新视图处理
+				}
+				return false;
+			}
+		});
+
 	}
 
 	// 点击图片之后的监听操作
