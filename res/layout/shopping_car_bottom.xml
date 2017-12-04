@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:paddingLeft="10dp"
+    android:orientation="horizontal"
+    android:background="@drawable/top_solid">
+
+    <ImageView
+        android:id="@+id/shopping_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/shopping_car_icon1" />
+
+    <TextView
+        android:id="@+id/shopping_much"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/shopping_ok"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:textColor="#7D7D7D"
+        android:text="已选( 2 )" />
+
+    <TextView
+        android:id="@+id/xiadan"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textColor="#fff"
+        android:background="#B3282B"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:text="下单" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/xiadan"
+        android:textColor="#A62F33"
+        android:textSize="19sp"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:gravity="right"
+        android:text="¥ 299" />
+
+</RelativeLayout>
