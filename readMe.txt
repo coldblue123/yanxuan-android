@@ -27,6 +27,15 @@
 	goods_more_label6.xml --以上为静态标签
       
     
+ 购物车
+    activity_main3.xml 购物车
+    shopping_car_bottom.xml
+	shopping_car_item.xml
+	shopping_car_label1.xml
+	shopping_car_title.xml
+	
+你要的头部
+	title.xml	
     
     
     

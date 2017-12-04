@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:background="@drawable/bottom_solid_whrite"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="2dp"
+    android:orientation="horizontal">
+	
+    <ImageView
+        android:id="@+id/show_car_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/a1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical" >
+        
+		<!-- 商品名称 -->
+        <TextView
+            android:id="@+id/goods_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+			android:singleLine="true" 
+			android:textColor="#474747"
+			android:textSize="16sp"
+            android:text="这是一首简单的小情歌" />
+        
+        <!-- 商品介绍 -->
+        <TextView
+            android:id="@+id/goods_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#7D7D7D"
+            android:textSize="13sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:ellipsize="end"
+			android:singleLine="true" 
+            android:text="唱出我们的爱歌" />
+
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom">
+			
+            <!-- 商品单价 -->
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:textColor="#2F2F2F"
+                android:text="¥ 59" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+                
+                
+				<!-- 增加数量 -->
+                <ImageView
+                    android:id="@+id/btn_add"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/add" />
+				<!-- 数量 -->
+
+                <TextView
+                    android:id="@+id/goods_num"
+                    android:layout_width="36dp"
+                    android:layout_height="26dp"
+                    android:layout_toLeftOf="@+id/btn_add"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="3" />
+                
+                <!-- 减少数量 -->
+                <ImageView
+                    android:id="@+id/btn_delete"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_toLeftOf="@+id/goods_num"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/delete" />
+
+                
+                
+            </RelativeLayout>
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+</LinearLayout>
