@@ -142,34 +142,26 @@ public final class R {
         public static final int yunlanxuanhuabing6=0x7f02006f;
     }
     public static final class id {
-<<<<<<< HEAD
-        public static final int action_settings=0x7f090038;
-=======
-        public static final int action_settings=0x7f090042;
-        public static final int btn_add=0x7f090035;
-        public static final int btn_delete=0x7f090037;
->>>>>>> 0be77eca76476079c7f145c15bc13247a75cc5ea
+        public static final int action_settings=0x7f090045;
+        public static final int btn_add=0x7f090038;
+        public static final int btn_delete=0x7f09003a;
         public static final int find=0x7f090018;
         public static final int findText=0x7f090019;
         public static final int fragment_cycle_viewpager_content=0x7f090003;
         public static final int fujin_btnlist_goods=0x7f090025;
         public static final int fujin_btnlist_t2=0x7f09002e;
         public static final int fujin_btnlist_tl=0x7f090009;
-        public static final int goods_intro=0x7f090034;
-        public static final int goods_name=0x7f090033;
-        public static final int goods_num=0x7f090036;
+        public static final int goods_intro=0x7f090037;
+        public static final int goods_name=0x7f090036;
+        public static final int goods_num=0x7f090039;
         public static final int goods_right=0x7f09002b;
         public static final int gview=0x7f09001a;
         public static final int imageView1=0x7f090006;
         public static final int imageView2=0x7f090017;
         public static final int imageView3=0x7f090008;
-<<<<<<< HEAD
         public static final int imageView4=0x7f09002d;
         public static final int imageView6=0x7f09002c;
-        public static final int image_indicator=0x7f090037;
-=======
-        public static final int image_indicator=0x7f090041;
->>>>>>> 0be77eca76476079c7f145c15bc13247a75cc5ea
+        public static final int image_indicator=0x7f090044;
         public static final int image_show=0x7f09001f;
         public static final int imagev_1=0x7f09000c;
         public static final int imagev_2=0x7f09000f;
@@ -180,46 +172,33 @@ public final class R {
         public static final int lable_show=0x7f090022;
         public static final int lables=0x7f09001b;
         public static final int lables2=0x7f09001c;
-        public static final int layout_img_sm=0x7f090038;
+        public static final int layout_img_sm=0x7f09003b;
         public static final int layout_menu_1=0x7f09000b;
         public static final int layout_menu_2=0x7f09000e;
         public static final int layout_menu_3=0x7f090011;
         public static final int layout_menu_4=0x7f090014;
-<<<<<<< HEAD
-        public static final int layout_viewager_content=0x7f090034;
-        public static final int layout_viewpager_indicator=0x7f090036;
-=======
-        public static final int layout_viewager_content=0x7f09003e;
-        public static final int layout_viewpager_indicator=0x7f090040;
->>>>>>> 0be77eca76476079c7f145c15bc13247a75cc5ea
+        public static final int layout_viewager_content=0x7f090041;
+        public static final int layout_viewpager_indicator=0x7f090043;
         public static final int linearLayout1=0x7f090000;
         public static final int linearLayout3=0x7f090004;
         public static final int linearLayout4=0x7f090005;
         public static final int linearLayout5=0x7f090007;
         public static final int linearLayout_fragment=0x7f090024;
         public static final int linear_goods=0x7f09001e;
-        public static final int ly_car_bottom=0x7f09002d;
-        public static final int ly_shooping_top=0x7f09002c;
+        public static final int ly_car_bottom=0x7f090030;
+        public static final int ly_shooping_top=0x7f09002f;
         public static final int ly_show_bottom=0x7f090002;
-<<<<<<< HEAD
-        public static final int price=0x7f09002f;
-        public static final int price4=0x7f090030;
-        public static final int price5=0x7f090032;
-        public static final int price6=0x7f090033;
-        public static final int price7=0x7f090031;
-=======
-        public static final int price=0x7f090039;
-        public static final int price4=0x7f09003a;
-        public static final int price5=0x7f09003c;
-        public static final int price6=0x7f09003d;
-        public static final int price7=0x7f09003b;
->>>>>>> 0be77eca76476079c7f145c15bc13247a75cc5ea
+        public static final int price=0x7f09003c;
+        public static final int price4=0x7f09003d;
+        public static final int price5=0x7f09003f;
+        public static final int price6=0x7f090040;
+        public static final int price7=0x7f09003e;
         public static final int price_show=0x7f090023;
         public static final int scrollView1=0x7f090001;
-        public static final int shooping_car_list=0x7f09002e;
-        public static final int shopping_much=0x7f090030;
-        public static final int shopping_ok=0x7f09002f;
-        public static final int show_car_img=0x7f090032;
+        public static final int shooping_car_list=0x7f090031;
+        public static final int shopping_much=0x7f090033;
+        public static final int shopping_ok=0x7f090032;
+        public static final int show_car_img=0x7f090035;
         public static final int textGoodsName=0x7f090026;
         public static final int textV_1=0x7f09000d;
         public static final int textV_2=0x7f090010;
@@ -231,12 +210,8 @@ public final class R {
         public static final int textView4=0x7f090028;
         public static final int textView5=0x7f090029;
         public static final int textView6=0x7f09002a;
-<<<<<<< HEAD
-        public static final int viewPager=0x7f090035;
-=======
-        public static final int viewPager=0x7f09003f;
-        public static final int xiadan=0x7f090031;
->>>>>>> 0be77eca76476079c7f145c15bc13247a75cc5ea
+        public static final int viewPager=0x7f090042;
+        public static final int xiadan=0x7f090034;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
