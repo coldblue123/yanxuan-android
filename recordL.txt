@@ -14,3 +14,14 @@
 	轮播图注意项
 	requestDisallowInterceptTouchEvent（true）方法是用来子View告诉父容器不要拦截我们的事件的
 	
+	触摸事件冲突
+	//加时其他控件不触发
+				addImageView.setOnTouchListener(new OnTouchListener() {
+					@Override
+					public boolean onTouch(View v, MotionEvent event) {
+						// TODO 自动生成的方法存根
+	    				v.getParent().requestDisallowInterceptTouchEvent(true);
+						return false;
+					}
+				});
+	

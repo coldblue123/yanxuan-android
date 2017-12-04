@@ -4,92 +4,123 @@
     android:layout_height="match_parent"
     android:background="#f4f4f4"
     tools:context=".MainActivity3" >
-   
-     <!-- 头部导航-->
-      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:id="@+id/ly_shooping_top">
-        <include layout="@layout/shopping_car_title"/>
-    </LinearLayout>
-    
-    
-    <!-- 购物车统计 -->
+
+    <!-- 头部导航 -->
+
     <LinearLayout
+        android:id="@+id/ly_shooping_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/ly_show_bottom"
-        android:id="@+id/ly_car_bottom">
-        
-        <include layout="@layout/shopping_car_bottom"/>
-        
+        android:layout_alignParentTop="true" >
+
+        <include layout="@layout/shopping_car_title" />
     </LinearLayout>
-   
 
-     <!-- 用于填充数据的listview -->
+    <!-- 购物车统计 -->
 
-      <ScrollView
-          android:id="@+id/scrollView1"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:layout_above="@+id/ly_car_bottom"
-          android:layout_below="@+id/ly_shooping_top" >
+    <LinearLayout
+        android:id="@+id/ly_car_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ly_show_bottom" >
 
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical" >
-              
-              <!-- 写的时候删掉下面代码 -->
+        <include layout="@layout/shopping_car_bottom" />
+    </LinearLayout>
+
+    <!-- 用于填充数据的listview -->
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ly_car_bottom"
+        android:layout_below="@+id/ly_shooping_top" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 写的时候删掉下面代码 -->
+            <!--
               <include layout="@layout/shopping_car_item"/>
               <include layout="@layout/shopping_car_item"/>
-              <!-- 写的时候删掉上面 -->
-              
-              <!-- 购物车数据写在此listview中-->
-	          <ListView
+            -->
+            <!-- 写的时候删掉上面 -->
+           
+            <!-- 购车数据容器 -->
+
+            <LinearLayout
+                android:id="@+id/fujin_btnlist_t2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical" >
+                 <!-- 购物车数据写在此listview中 -->
+              <!-- <ListView
 		         android:id="@+id/shooping_car_list"
 		         android:layout_width="match_parent"
 		         android:layout_height="wrap_content" >
-		         <!-- 购物车数据模板页面是：  shopping_car_item.xml-->
-	          </ListView>
-	          
-	          
-	          <!--  标签提示 -->
-	          <!-- 这里放置推荐数据 -->
-	          <LinearLayout
-	              android:layout_width="match_parent"
-	              android:layout_height="wrap_content"
-	              android:layout_marginTop="10dp">
-              		
-	              <include layout="@layout/shopping_car_label1"/>
-          	  </LinearLayout>
-	          
-	          
-	          <!-- 这里放置推荐数据 -->
-	          <LinearLayout
-	              android:layout_width="match_parent"
-	              android:layout_height="match_parent">
-              		
-	              <TextView 
-	                  android:layout_width="match_parent"
-	              	  android:layout_height="wrap_content"
-	              	  android:text="这里放推荐数据"/>
-          	  </LinearLayout>
-              
-              
-          </LinearLayout>
-      </ScrollView>
-      
-       
+	          </ListView> -->
+            </LinearLayout>
+
+            <!-- 标签提示 -->
+            <!-- 这里放置推荐数据 还有人买了提示 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <include layout="@layout/shopping_car_label1" />
+            </LinearLayout>
+
+            <!-- 这里放置推荐数据 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:gravity="center"
+                android:onClick="gotoFindIndex"
+                android:tag="" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="热点推荐"
+                    android:textColor="#2f2f2f"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/right" />
+            </LinearLayout>
+            <!-- 显示推荐商品一 -->
+
+            <LinearLayout
+                android:id="@+id/fujin_btnlist_tl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
     <!-- 底部导航 -->
-      <LinearLayout
+
+    <LinearLayout
+        android:id="@+id/ly_show_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/ly_show_bottom">
-        <include layout="@layout/bottom"/>
+        android:layout_alignParentBottom="true" >
+
+        <include layout="@layout/bottom" />
     </LinearLayout>
-      
 
 </RelativeLayout>

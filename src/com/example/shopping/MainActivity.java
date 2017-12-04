@@ -65,6 +65,8 @@ public class MainActivity extends Activity {
 		q = (Quanju) getApplicationContext();// 获取所有表数据
 		q.Init();// 初始化数
 		imageUrls=q.bannerImageUrls;
+		//测试数据
+		q.currentUser=q.UserList.get(0);
 		// 热点推荐动态加载
 		this.addGridView();
 		// 页面底部导航的跳转方法

@@ -1,40 +1,138 @@
 package com.example.shopping.Model;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 
-//¹ºÎï³µ±í
+import com.example.shopping.Common.CommonMath;
+
+import android.R.string;
+
+//è´­ç‰©è½¦è¡¨
 public class ShoppingCar {
 	int ID;
 	int Sort;
-	String ShoppingCarID;// ÉÌÆ·ID
-	String ShoppingCarName;// ÉÌÆ·Ãû
-	double Price;// µ¥¼Û
-	String Uint;// °ü×°µ¥Î»
-	int Num;// ¹ºÂòÊıÄ¿
-	String Image;// ·âÃæÍ¼Æ¬
-	String Time;// ¼ÓÈëÊ±¼ä
+	int GoodsID;// å•†å“ID
+	String GoodsName;// å•†å“å
+	double Price;// å•ä»·
+	String Uint;// åŒ…è£…å•ä½
+	int Num;// è´­ä¹°æ•°ç›®
+	String Image;// å°é¢å›¾ç‰‡
+	String Time;// åŠ å…¥æ—¶é—´
+	int Sign;//0 æ²¡æœ‰è´­ä¹° 1 å·²ç»è´­ä¹°   2è¿˜æœªä»˜æ¬¾
 
-	public ShoppingCar() {
-	}
 
-	public ShoppingCar(int iD, int sort, String shoppingCarID, String shoppingCarName,
-			double price, String uint, int num, String image, String time) {
+	public ShoppingCar(int iD, int sort, int goodsID, String goodsName,
+			double price, String uint, int num, String image, String time,
+			int sign) {
+		super();
 		ID = iD;
 		Sort = sort;
-		ShoppingCarID = shoppingCarID;
-		ShoppingCarName = shoppingCarName;
+		GoodsID = goodsID;
+		GoodsName = goodsName;
 		Price = price;
 		Uint = uint;
 		Num = num;
 		Image = image;
 		Time = time;
+		Sign = sign;
+	}
+	public int getID() {
+		return ID;
 	}
 
-	// ***************¹«¹²·½·¨***************************
+	public int getSign() {
+		return Sign;
+	}
 
-	// ²éÑ¯µ¥¸ö¼ÇÂ¼
+	public void setSign(int sign) {
+		Sign = sign;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	public int getSort() {
+		return Sort;
+	}
+
+	public void setSort(int sort) {
+		Sort = sort;
+	}
+
+
+	public int getGoodsID() {
+		return GoodsID;
+	}
+
+
+	public void setGoodsID(int goodsID) {
+		GoodsID = goodsID;
+	}
+
+
+
+	public String getGoodsName() {
+		return GoodsName;
+	}
+
+
+
+	public void setGoodsName(String goodsName) {
+		GoodsName = goodsName;
+	}
+
+
+
+	public double getPrice() {
+		return Price;
+	}
+
+	public void setPrice(double price) {
+		Price = price;
+	}
+
+	public String getUint() {
+		return Uint;
+	}
+
+	public void setUint(String uint) {
+		Uint = uint;
+	}
+
+	public int getNum() {
+		return Num;
+	}
+
+	public void setNum(int num) {
+		Num = num;
+	}
+
+	public String getImage() {
+		return Image;
+	}
+
+	public void setImage(String image) {
+		Image = image;
+	}
+
+	public String getTime() {
+		return Time;
+	}
+
+	public void setTime(String time) {
+		Time = time;
+	}
+
+	public ShoppingCar() {
+	}
+
+	// ***************å…¬å…±æ–¹æ³•***************************
+
+	// æŸ¥è¯¢å•ä¸ªè®°å½•
 	public ShoppingCar selectShoppingCarByID(List<ShoppingCar> list, int id) {
 		ShoppingCar l = new ShoppingCar();
 		for (ShoppingCar shoppingCar : list) {
@@ -45,31 +143,83 @@ public class ShoppingCar {
 		}
 		return l;
 	}
-
-	// ÅÅĞòÍ¨¹ıÊôĞÔÅÅĞò
+	
+	// æŸ¥è¯¢å•ä¸ªè®°å½•
+	public static double getTotal(List<ShoppingCar> list) {
+		double l=0 ;
+		for (ShoppingCar shoppingCar : list) {
+			l=l+(shoppingCar.getPrice()*(double)shoppingCar.getNum());
+		}
+		return l;
+	}
+	// æŸ¥è¯¢åˆ—è¡¨é€šè¿‡æ˜¯å¦è´­ä¹°æŸ¥è¯¢
+	public static List<ShoppingCar> selectShoppingBySign(List<ShoppingCar> list,
+				int sign) {
+			List<ShoppingCar> relist = new ArrayList<ShoppingCar>();
+			for (ShoppingCar shoppingCar : list) {
+				if (shoppingCar.Sign==sign) {
+					relist.add(shoppingCar); // æ·»åŠ æ•°æ®ç»™listé›†åˆ
+				}
+			}
+			return relist;
+		}
+	
+	// æŸ¥è¯¢åˆ—è¡¨é€šè¿‡å•†å“idå’Œæ˜¯å¦è´­ä¹°
+	public static List<ShoppingCar> selectShoppingByGoodID(List<ShoppingCar> list,
+				int goodid,int sign) {
+			List<ShoppingCar> relist = new ArrayList<ShoppingCar>();
+			for (ShoppingCar shoppingCar : list) {
+				if (shoppingCar.GoodsID==goodid
+						&& shoppingCar.Sign==sign) {
+					relist.add(shoppingCar); // æ·»åŠ æ•°æ®ç»™listé›†åˆ
+				}
+			}
+			return relist;
+		}
+	
+	//æŸ¥è¯¢ä¿®æ”¹åçš„é›†åˆ
+	public static List<ShoppingCar> setShoppingByGoodID(List<ShoppingCar> list,
+			int goodid,int sign,ShoppingCar setShoppingCar ) {
+		List<ShoppingCar> relist = new ArrayList<ShoppingCar>();
+		for (ShoppingCar shoppingCar : list) {
+			if (shoppingCar.GoodsID==goodid
+					&& shoppingCar.Sign==sign) {
+				shoppingCar.setGoodsName(setShoppingCar.getGoodsName());
+				shoppingCar.setPrice(setShoppingCar.getPrice());
+				shoppingCar.setUint(setShoppingCar.getUint());
+				shoppingCar.setNum(setShoppingCar.getNum());
+				shoppingCar.setImage(setShoppingCar.getImage());
+				shoppingCar.setTime(setShoppingCar.getTime());
+				shoppingCar.setSign(setShoppingCar.getSign());
+			}
+			relist.add(shoppingCar); // æ·»åŠ æ•°æ®ç»™listé›†åˆ
+		}
+		return relist;
+	}
+	// æ’åºé€šè¿‡å±æ€§æ’åº
 	public List<ShoppingCar> sortShoppingCarListBySort(List<ShoppingCar> list) {
 		Comparator<ShoppingCar> comparator = new Comparator<ShoppingCar>() {
 			public int compare(ShoppingCar s1, ShoppingCar s2) {
-				// ÏÈÅÅĞòºÅ
+				// å…ˆæ’åºå·
 				if (s1.Sort != s2.Sort) {
 					return s1.Sort - s2.Sort;
 				} else {
-					// ÄêÁäÏàÍ¬Ôò°´ĞÕÃûÅÅĞò
-					if (!s1.ShoppingCarName.equals(s2.ShoppingCarName)) {
-						return s1.ShoppingCarName.compareTo(s2.ShoppingCarName);
+					// å¹´é¾„ç›¸åŒåˆ™æŒ‰å§“åæ’åº
+					if (!s1.GoodsName.equals(s2.GoodsName)) {
+						return s1.GoodsName.compareTo(s2.GoodsName);
 					} else {
-						// ĞÕÃûÒ²ÏàÍ¬Ôò°´Ñ§ºÅÅÅĞò
+						// å§“åä¹Ÿç›¸åŒåˆ™æŒ‰å­¦å·æ’åº
 						return s1.ID - s2.ID;
 					}
 				}
 			}
 		};
-		// ÕâÀï¾Í»á×Ô¶¯¸ù¾İ¹æÔò½øĞĞÅÅĞò
+		// è¿™é‡Œå°±ä¼šè‡ªåŠ¨æ ¹æ®è§„åˆ™è¿›è¡Œæ’åº
 		Collections.sort(list, comparator);
 		return list;
 	}
 
-	// É¾³ıÒ»Ìõ¼ÇÂ¼
+	// åˆ é™¤ä¸€æ¡è®°å½•
 	public boolean deleteShoppingCarByID(List<ShoppingCar> list, int id) {
 		boolean b = false;
 		ShoppingCar l = new ShoppingCar();
@@ -84,12 +234,12 @@ public class ShoppingCar {
 		return b;
 	}
 
-	// ĞŞ¸ÄÒ»Ìõ¼ÇÂ¼Í¨¹ıid
+	// ä¿®æ”¹ä¸€æ¡è®°å½•é€šè¿‡id
 	public boolean updateShoppingCarByID(List<ShoppingCar> list, int id, String name) {
 		boolean b = false;
 		for (ShoppingCar shoppingCar : list) {
 			if (shoppingCar.ID == id) {
-				shoppingCar.ShoppingCarName = name;
+				shoppingCar.GoodsName = name;
 				b = true;
 				break;
 			}
@@ -97,4 +247,26 @@ public class ShoppingCar {
 		return b;
 	}
 
+	
+	// æ•°æ®ç»„è£…å¯¹åº”æ¨¡å‹
+		public static ArrayList<HashMap<String, Object>> getListToHashMap(
+				List<ShoppingCar> list) {
+			ArrayList<HashMap<String, Object>> list2 = new ArrayList<HashMap<String, Object>>();
+			for (ShoppingCar shoppingCar : list) {
+				// æ·»åŠ æ•°æ®ç»™mapé›†åˆ
+				HashMap<String, Object> map1 = new HashMap<String, Object>(); // å®šä¹‰mapé›†åˆ(æ•°ç»„ï¼‰ï¼Œä¸€ä¸ªmapé›†åˆå¯¹åº”ListViewçš„ä¸€æ ã€‚
+				map1.put("Price", shoppingCar.Price);
+				map1.put("PriceStr", "Â¥ " + shoppingCar.Price);
+				map1.put("GoodsName", shoppingCar.GoodsName);
+				map1.put("Uint", shoppingCar.Uint);
+				map1.put("GoodsID", shoppingCar.GoodsID);
+				map1.put("ShoopingID", shoppingCar.ID);
+				map1.put("Num", shoppingCar.Num);
+				map1.put("Time","åŠ å…¥æ—¶é—´:"+shoppingCar.Time);
+				map1.put("Image", CommonMath.getImageResourceID(shoppingCar.Image));
+				// -----æŠŠmapé›†åˆæ”¾è¿›listé›†åˆé‡Œ---------
+				list2.add(map1); // æ·»åŠ æ•°æ®ç»™listé›†åˆ
+			}
+			return list2;
+		}
 }

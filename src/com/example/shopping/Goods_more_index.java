@@ -1,14 +1,19 @@
 package com.example.shopping;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import android.R.integer;
+import android.R.string;
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract.Contacts.Data;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -30,6 +35,7 @@ import com.example.shopping.Common.CommonMath;
 import com.example.shopping.Common.MyGridView;
 import com.example.shopping.Model.Goods;
 import com.example.shopping.Model.Quanju;
+import com.example.shopping.Model.ShoppingCar;
 import com.stevenhu.android.phone.bean.ADInfo;
 
 public class Goods_more_index extends Activity {
@@ -42,7 +48,7 @@ public class Goods_more_index extends Activity {
 	private List<ADInfo> infos = new ArrayList<ADInfo>();
 	private CycleViewPager cycleViewPager;
 	// 轮播图图片
-	private int[] imageUrls ;
+	private int[] imageUrls;
 
 	// ***自定义字段****
 	int goodsID;// 商品id
@@ -52,13 +58,15 @@ public class Goods_more_index extends Activity {
 	private GridView gridView;
 	private LinearLayout ll;
 	Intent intent;
+	List<ShoppingCar> list;
+	ShoppingCar shoppingCar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.goods_more_index);
 		q = (Quanju) getApplicationContext();// 获取所有表数据
-		imageUrls=q.bannerImageUrls;
+		imageUrls = q.bannerImageUrls;
 		// 接受MainActivity首页搜索框传来的值
 		goodsID = getIntent().getExtras().getInt("goodsID");
 		goodsModel = Goods.selectGoodsByID(q.GoodsList, goodsID);
@@ -68,6 +76,8 @@ public class Goods_more_index extends Activity {
 		initialize();
 		// 推荐添加视图
 		addGridView();
+		// 添加购物车事件
+		addShoppingCar();
 	}
 
 	@Override
@@ -92,6 +102,10 @@ public class Goods_more_index extends Activity {
 		TextView tvIntro = (TextView) Goods_more_index.this
 				.findViewById(R.id.textView2);
 		tvIntro.setText(goodsModel.getIntro());
+		// 加入购物车控件加goodid
+		TextView tvID = (TextView) Goods_more_index.this
+				.findViewById(R.id.text_goodsid);
+		tvID.setTag(goodsModel.getID());
 	};
 
 	// 轮播图初始化
@@ -241,7 +255,6 @@ public class Goods_more_index extends Activity {
 		gridView.setAdapter(adapter); // 把适配器设置给ListView控件
 	}
 
-
 	// 跳转搜索页面----一定不要私有,界面才能找到
 	public void gotoFindIndex(View view) {
 		String findEditStr = view.getTag().toString();// 通过tag取值
@@ -250,7 +263,48 @@ public class Goods_more_index extends Activity {
 		intent.putExtra("findEditStr", findEditStr); // 传递字符串数据
 		startActivity(intent);
 	}
-	
-	// 添加购物车监听事件
 
+	// 添加购物车监听事件 添加成功提示
+	public void addShoppingCar() {
+		TextView tvID = (TextView) Goods_more_index.this
+				.findViewById(R.id.text_goodsid);
+		tvID.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				try {
+					int goodid = Integer.parseInt(view.getTag().toString());// 通过tag取值goodid
+					Goods goods = Goods.selectGoodsByID(q.GoodsList, goodid);
+					Date now = new Date();
+					DateFormat d = DateFormat.getDateTimeInstance();
+					String timeStr = d.format(now);
+					// 这类产品数量
+					int num = 1;
+					list = ShoppingCar.selectShoppingByGoodID(
+							q.ShoppingCarList, goodid, 0);// 查询没又被购买的该产品
+					if (list.size() == 0) {
+						// 没有添加
+						q.ShoppingCarList.add(new ShoppingCar(q.ShoppingCarList
+								.size()+ 100, q.ShoppingCarList.size() + 1, goods
+								.getID(), goods.getName(), goods.getPrice(),
+								goods.getUint(), num, goods.getImage(),
+								timeStr, 0));
+					} else {
+						num = list.get(0).getNum() + 1;
+						shoppingCar = new ShoppingCar(q.ShoppingCarList.size(),
+								q.ShoppingCarList.size() + 100, goods.getID(),
+								goods.getName(), goods.getPrice(), goods
+										.getUint(), num, goods.getImage(),
+								timeStr, 0);
+						// 有状态未付款修改 时间 数量
+						q.ShoppingCarList = ShoppingCar.setShoppingByGoodID(
+								q.ShoppingCarList, goodid, 0, shoppingCar);
+					}
+					Toast.makeText(getApplicationContext(), "添加成功", 1).show();
+				} catch (Exception e) {
+					Toast.makeText(getApplicationContext(), "添加失败", 1).show();
+				}
+			}
+		});
+
+	}
 }

@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="110dp"
     android:background="@drawable/bottom_solid_whrite"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-    android:paddingBottom="2dp"
-    android:orientation="horizontal">
-	
+    android:id="@+id/linear_car_goods"
+     >
+
     <ImageView
         android:id="@+id/show_car_img"
         android:layout_width="80dp"
@@ -18,91 +20,103 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="10dp"
+        android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:orientation="vertical" >
-        
-		<!-- 商品名称 -->
+        android:paddingTop="10dp" >
+
+        <!-- 商品名称 -->
+
         <TextView
             android:id="@+id/goods_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-			android:singleLine="true" 
-			android:textColor="#474747"
-			android:textSize="16sp"
-            android:text="这是一首简单的小情歌" />
-        
+            android:singleLine="true"
+            android:text="这是一首简单的小情歌"
+            android:textColor="#474747"
+            android:textSize="16sp" />
+
         <!-- 商品介绍 -->
+
         <TextView
             android:id="@+id/goods_intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#7D7D7D"
-            android:textSize="13sp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:ellipsize="end"
-			android:singleLine="true" 
-            android:text="唱出我们的爱歌" />
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:singleLine="true"
+            android:text="唱出我们的爱歌"
+            android:textColor="#7D7D7D"
+            android:textSize="13sp" />
 
-        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_gravity="bottom">
-			
+            android:layout_gravity="bottom"
+            android:orientation="horizontal" >
+
             <!-- 商品单价 -->
+
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/price_car_show"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="16sp"
+                android:text="¥ 59"
                 android:textColor="#2F2F2F"
-                android:text="¥ 59" />
+                android:textSize="16sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp">
-                
-                
-				<!-- 增加数量 -->
+                android:layout_height="30dp" >
+
+                <!-- 增加数量 -->
+
                 <ImageView
                     android:id="@+id/btn_add"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:focusable="true"
                     android:src="@drawable/add" />
-				<!-- 数量 -->
-
+                <!-- 数量 -->
+<!-- 购物id -->
+                <TextView
+                    android:id="@+id/lable_shoopingID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+<!-- 商品id -->
+                <TextView
+                    android:id="@+id/lable_car_goodsID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+                
                 <TextView
                     android:id="@+id/goods_num"
                     android:layout_width="36dp"
                     android:layout_height="26dp"
-                    android:layout_toLeftOf="@+id/btn_add"
                     android:layout_centerVertical="true"
-                    android:textSize="16sp"
+                    android:layout_toLeftOf="@+id/btn_add"
                     android:gravity="center"
-                    android:text="3" />
-                
+                    android:text="3"
+                    android:textSize="16sp" />
+
                 <!-- 减少数量 -->
+
                 <ImageView
                     android:id="@+id/btn_delete"
                     android:layout_width="26dp"
                     android:layout_height="26dp"
-                    android:layout_toLeftOf="@+id/goods_num"
                     android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/goods_num"
+                    android:focusable="true"
                     android:src="@drawable/delete" />
-
-                
-                
             </RelativeLayout>
-            
         </LinearLayout>
-        
     </LinearLayout>
-    
+
 </LinearLayout>

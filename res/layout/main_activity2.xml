@@ -5,16 +5,13 @@
     android:background="#f4f4f4"
     tools:context=".MainActivity" >
 
-    <!-- 搜索 -->
-
+    <!-- 头部导航 -->
     <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
+        android:id="@+id/ly_shooping_top"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" >
-
-        <include layout="@layout/find" />
+        <include layout="@layout/title" />
     </LinearLayout>
 
     <ScrollView
@@ -23,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/ly_show_bottom"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1" >
+        android:layout_below="@+id/ly_shooping_top" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,6 +48,7 @@
             </LinearLayout>
 
             <!-- 标签2 -->
+
 
             <!-- 热门产品分区 -->
 
@@ -87,8 +85,9 @@
                 android:background="#fff"
                 android:orientation="horizontal" >
             </LinearLayout>
-           <!-- 特色产品 -->
-               <LinearLayout
+            <!-- 特色产品 -->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
@@ -121,7 +120,6 @@
                 android:background="#fff"
                 android:orientation="horizontal" >
             </LinearLayout>
-            
         </LinearLayout>
     </ScrollView>
 

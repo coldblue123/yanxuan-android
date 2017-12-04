@@ -69,6 +69,7 @@
             android:text="立即购买" />
 
         <TextView
+            android:id="@+id/text_goodsid"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="#fff"
@@ -76,6 +77,7 @@
             android:textSize="14sp"
             android:layout_weight="1"
             android:gravity="center"
+            android:tag=""
             android:text="加入购物车" />
         
     </LinearLayout>

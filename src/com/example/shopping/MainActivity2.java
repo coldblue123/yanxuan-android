@@ -58,7 +58,7 @@ public class MainActivity2 extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_activity2);
 		q = (Quanju) getApplicationContext();// 获取所有表数据
-		imageUrls=q.bannerImageUrls;
+		imageUrls=q.bannerImageUrls2;
 		// 页面底部导航的跳转方法
 		routerPageFun();
 		// 热门推荐动态加载
@@ -71,6 +71,9 @@ public class MainActivity2 extends Activity {
 						4));
 		// 初始化banner轮播图
 		initialize();
+		TextView tv=(TextView)MainActivity2.this
+			.findViewById(R.id.textView_title);
+		tv.setText("热荐");
 	}
 
 	@Override

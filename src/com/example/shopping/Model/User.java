@@ -8,6 +8,8 @@ import java.util.List;
 public class User {
 	int ID;
 	int Sort;
+	String LoginName;
+	String Password;
 	String Name;
 	int Sex;
 	String Image;// 头像图片
@@ -18,8 +20,12 @@ public class User {
 	public User() {
 	}
 
-	public User(int iD, int sort, String name, int sex, String image,
-			String registerTime, String birthday, String site) {
+	public User(int iD, int sort,String loginName, String password,
+			String name, int sex, String image, String registerTime,
+			String birthday, String site) {
+		super();
+		LoginName = loginName;
+		Password = password;
 		ID = iD;
 		Sort = sort;
 		Name = name;
@@ -27,8 +33,10 @@ public class User {
 		Image = image;
 		RegisterTime = registerTime;
 		Birthday = birthday;
-		this.Site = site;
+		Site = site;
 	}
+
+
 
 	// ***************公共方法***************************
 
