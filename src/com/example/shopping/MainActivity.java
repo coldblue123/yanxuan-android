@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 	private List<ADInfo> infos = new ArrayList<ADInfo>();
 	private CycleViewPager cycleViewPager;
 	// �ֲ�ͼͼƬ
-	private int[] imageUrls = { R.drawable.banner_test,
+	private int[] imageUrls = { R.drawable.banner1,
 			R.drawable.banner_test1, R.drawable.banner_test, };
 
 	private ImageView imagv_1, imagv_2, imagv_3, imagv_4;
