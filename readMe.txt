@@ -42,6 +42,9 @@
 	activity_main4.xml ÎÒµÄ
 	user_label1.xml
 	user_label2.xml	
+	
+µÇÂ¼
+	login.xml
     
     
     

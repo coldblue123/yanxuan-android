@@ -17,5 +17,6 @@
     <color name="selectorColor">#00000000</color>
 
     <string name="title_activity_goods_more_index">Goods_more_index</string>
+    <string name="title_activity_login">Login</string>
 
 </resources>
