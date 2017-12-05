@@ -74,6 +74,8 @@ public class MainActivity2 extends Activity {
 		TextView tv=(TextView)MainActivity2.this
 			.findViewById(R.id.textView_title);
 		tv.setText("热荐");
+		//位置定位
+		mScrollView.smoothScrollTo(0,20);
 	}
 
 	@Override

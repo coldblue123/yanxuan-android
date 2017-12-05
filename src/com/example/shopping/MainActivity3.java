@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class MainActivity3 extends Activity {
 	private ArrayList<HashMap<String, Object>> data_list;// 获取列表数据
 	private double total;// 总价
 	List<ShoppingCar> list;//数据
+	private ScrollView mScrollView;
 	DecimalFormat df = new DecimalFormat("######0.00");
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,9 @@ public class MainActivity3 extends Activity {
 		this.addGridView((LinearLayout) MainActivity3.this
 				.findViewById(R.id.fujin_btnlist_tl), Goods.selectGoodsByTop(
 				Goods.sortGoodsListBySort(q.GoodsList, 0), 6));
+		mScrollView = (ScrollView) findViewById(R.id.scrollView1);
+		//位置定位
+		mScrollView.smoothScrollTo(0,20);
 	}
 
 	@Override
