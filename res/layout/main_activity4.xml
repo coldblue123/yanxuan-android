@@ -2,24 +2,310 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context=".MainActivity4" >
-<TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="97dp"
-        android:layout_marginTop="157dp"
-        android:text="4" />
-    <!-- 底部导航  -->
-      <LinearLayout
+        android:background="#1d1d1d" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/head_pic" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView1"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/imageView1"
+            android:text="调皮的二哈"
+            android:textColor="#fff"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="6dp"
+            android:text="二哈也快乐"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginRight="10dp"
+            android:text="签到    >"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+    
+    <!-- 中部按钮 -->
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout1"
+        android:orientation="vertical" >
+        
+        <include  layout="@layout/user_label1" />
+        
+        <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="60dp"
+		    android:layout_marginTop="10dp"
+		    android:orientation="horizontal">
+    
+			<!-- 第一个标签 star -->
+			    <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical"
+			        android:paddingTop="2dp"
+			        android:clickable="true"
+			        android:id="@+id/a_1">
+			        <ImageView
+			        android:id="@+id/hhh"
+			        android:layout_width="22dp"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/u1"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/aaaa"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="待付款" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第一个标签 stop -->  
+			  
+			<!-- 第二个标签 start -->   
+			       <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical" 
+			        android:paddingTop="2dp"
+			        android:clickable="true"
+			        android:id="@+id/a_2">
+			        <ImageView
+			        android:id="@+id/ggg"
+			        android:layout_width="22dp"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/u3"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/bbbb"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="待发货" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第二个标签 stop -->
+			
+			<!-- 第三个标签 start -->   
+			       <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical" 
+			        android:paddingTop="2dp"
+			        android:clickable="true"
+			        android:id="@+id/a3">
+			        <ImageView
+			        android:id="@+id/ggg"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/u2"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/cccc"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="已发货" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第三个标签 stop --> 
+			
+			<!-- 第四个标签 start -->   
+			       <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical" 
+			        android:paddingTop="2dp"
+			        android:clickable="true"
+			        android:id="@+id/a4">
+			        <ImageView
+			        android:id="@+id/ffff"
+			        android:layout_width="26dp"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/u4"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/dddd"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="待评价" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第四个标签 stop -->   
+		</LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#f4f4f4"/>
+        
+        <include  layout="@layout/user_label2" />
+        
+        <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="60dp"
+		    android:layout_marginTop="10dp"
+		    android:orientation="horizontal">
+    
+			<!-- 第一个标签 star -->
+			    <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical"
+			        android:paddingTop="2dp"
+			        android:clickable="true">
+			        <ImageView
+			        android:id="@+id/hhh"
+			        android:layout_width="25dp"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/b1"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/aaaa"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="拼团订单" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第一个标签 stop -->  
+			  
+			<!-- 第二个标签 start -->   
+			       <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical" 
+			        android:paddingTop="2dp"
+			        android:clickable="true">
+			        <ImageView
+			        android:id="@+id/ggg"
+			        android:layout_width="25dp"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/b2"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/bbbb"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="众筹订单" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第二个标签 stop -->
+			
+			<!-- 第三个标签 start -->   
+			       <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical" 
+			        android:paddingTop="2dp"
+			        android:clickable="true">
+			        <ImageView
+			        android:id="@+id/ggg"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/b3"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/cccc"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="优惠券" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第三个标签 stop --> 
+			
+			<!-- 第四个标签 start -->   
+			       <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_weight="1"
+			        android:layout_height="match_parent"
+			        android:orientation="vertical" 
+			        android:paddingTop="2dp"
+			        android:clickable="true">
+			        <ImageView
+			        android:id="@+id/ffff"
+			        android:layout_width="25dp"
+			        android:layout_height="wrap_content"
+			        android:src="@drawable/b4"
+			        android:layout_gravity="center" />
+			        <TextView
+			            android:id="@+id/dddd"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="红包" 
+			            android:textSize="14sp"
+			            android:textColor="#7c7c7c"
+			            android:layout_gravity="center" />     
+			    </LinearLayout>
+			<!-- 第四个标签 stop -->   
+		</LinearLayout>
+        
+
+    </LinearLayout>
+    <!-- 中部按钮 -->
+	
+	
+	
+	
+    <!-- 底部导航 -->
+    <LinearLayout
+        android:id="@+id/ly_show_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" 
         android:layout_alignParentBottom="true"
-        android:id="@+id/ly_show_bottom">
-        <include layout="@layout/bottom"/>
+        android:orientation="vertical" >
+
+        <include layout="@layout/bottom" />
     </LinearLayout>
 
+    
 </RelativeLayout>

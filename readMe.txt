@@ -35,7 +35,13 @@
 	shopping_car_title.xml
 	
 你要的头部
-	title.xml	
+	title.xml
+	
+	
+我的
+	activity_main4.xml 我的
+	user_label1.xml
+	user_label2.xml	
     
     
     

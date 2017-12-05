@@ -10,7 +10,15 @@
     android:paddingTop="10dp"
     android:id="@+id/linear_car_goods"
      >
-
+     
+	<CheckBox  
+        android:id="@+id/select_all"  
+        android:layout_width="36dp"  
+        android:layout_height="30dp"
+        android:checked="true"  
+        android:layout_gravity="center"
+        style="@style/CustomCheckboxTheme" /> 
+         
     <ImageView
         android:id="@+id/show_car_img"
         android:layout_width="80dp"

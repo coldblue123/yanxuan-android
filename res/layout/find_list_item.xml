@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="#fafafa"
     android:orientation="vertical"
-    android:paddingLeft="5dp" >
+    android:paddingLeft="5dp">
 
     <!-- 列 -->
 
