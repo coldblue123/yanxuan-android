@@ -27,10 +27,12 @@ public class Quanju extends Application {
 	// 初始化数据库
 	public void Init() {
 		// 轮播图初始化
-		int[] imageUrls = { R.drawable.banner_test, R.drawable.banner_test1,
-				R.drawable.banner_test };
-		int[] imageUrls2 = { R.drawable.banner_test, R.drawable.banner_test1,
-				R.drawable.banner_test1 };
+		int[] imageUrls = { R.drawable.banner1, R.drawable.banner2,
+				R.drawable.banner3,R.drawable.banner4 };
+		
+		int[] imageUrls2 = { R.drawable.banner1, R.drawable.banner2,
+				R.drawable.banner3,R.drawable.banner4 };
+		
 		bannerImageUrls = imageUrls;
 		bannerImageUrls2 = imageUrls2;
 		// 分类表初始化
