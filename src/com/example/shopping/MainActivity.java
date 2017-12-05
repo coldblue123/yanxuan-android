@@ -184,7 +184,7 @@ public class MainActivity extends Activity {
 		}
 		// 将第一个ImageView添加进来
 		ImageView imageView3 = new ImageView(this);
-		imageView3.setBackgroundResource(imageUrls[2]);
+		imageView3.setBackgroundResource(imageUrls[0]);
 		views.add(imageView3);
 
 		// 设置循环，在调用setData方法前调用
