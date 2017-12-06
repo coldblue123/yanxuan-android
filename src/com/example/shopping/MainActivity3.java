@@ -11,11 +11,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,6 +45,7 @@ public class MainActivity3 extends Activity {
 	private ArrayList<HashMap<String, Object>> data_list;// 获取列表数据
 	private double total;// 总价
 	List<ShoppingCar> list;//数据
+	ShoppingCar sCar;//单条购物车数据
 	private ScrollView mScrollView;
 	DecimalFormat df = new DecimalFormat("######0.00");
 	@Override
@@ -57,16 +59,10 @@ public class MainActivity3 extends Activity {
 		list=ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);
 		this.addCarGridView((LinearLayout) MainActivity3.this
 				.findViewById(R.id.fujin_btnlist_t2),list );
-		
-		//合计数量统计
-		TextView tv=(TextView) MainActivity3.this
-		.findViewById(R.id.shopping_much);
-		tv.setText("已选（"+list.size()+"）");
-		TextView tvtotal=(TextView) MainActivity3.this
-		.findViewById(R.id.textView_total);
-		total=ShoppingCar.getTotal(list);
-		tvtotal.setText("¥ "+df.format(total));
-		
+		//初始化选中数据--测试 
+		q.ShoppingChoiceCarList=new  ArrayList<ShoppingCar>();
+		//修改选中总价格和选中数量
+		setTotalText();
 		// 热门推荐动态加载
 		this.addGridView((LinearLayout) MainActivity3.this
 				.findViewById(R.id.fujin_btnlist_tl), Goods.selectGoodsByTop(
@@ -82,7 +78,28 @@ public class MainActivity3 extends Activity {
 		getMenuInflater().inflate(R.menu.main_activity3, menu);
 		return true;
 	}
-
+	
+	//修改选中总价格和选中数量
+	public void setTotalText() {
+		//合计数量统计
+		TextView tv=(TextView) MainActivity3.this
+		.findViewById(R.id.shopping_much);
+		tv.setText("已选（"+q.ShoppingChoiceCarList.size()+"）");
+		//是否选择同步
+		CheckBox cbBox=(CheckBox) MainActivity3.this
+		.findViewById(R.id.shopping_ok);
+		//判断是否有选择
+		if (q.ShoppingChoiceCarList.size()>0)
+			cbBox.setChecked(true);
+		else
+			cbBox.setChecked(false);
+		TextView tvtotal=(TextView) MainActivity3.this
+		.findViewById(R.id.textView_total);
+		total=ShoppingCar.getTotal(q.ShoppingChoiceCarList);
+		tvtotal.setText("¥ "+df.format(total));
+	}
+	
+	
 	// 底部导航跳转页面方法
 	public void routerPageFun() {
 		layout_menu_1 = (LinearLayout) findViewById(R.id.layout_menu_1);
@@ -138,6 +155,7 @@ public class MainActivity3 extends Activity {
 	private void addGridView(LinearLayout addll, List<Goods> list) {
 		// 填充容器定位
 		ll = addll;
+		ll.removeAllViews();//清空布局
 		// 设置GridView属性
 		gridView = new MyGridView(this);// 注意这里使用的是MyGridView,如果使用GridView的话，只会显示一行多一点，第二行显示不完全，使用MyGridView的话，能够完全显示出来。commend
 		gridView.setNumColumns(2);
@@ -197,6 +215,7 @@ public class MainActivity3 extends Activity {
 	private void addCarGridView(LinearLayout addll, List<ShoppingCar> list) {
 		// 填充容器定位
 		ll = addll;
+		ll.removeAllViews();//清空布局
 		// 设置GridView属性
 		gridView = new MyGridView(this);// 注意这里使用的是MyGridView,如果使用GridView的话，只会显示一行多一点，第二行显示不完全，使用MyGridView的话，能够完全显示出来。commend
 		gridView.setNumColumns(1);
@@ -228,12 +247,11 @@ public class MainActivity3 extends Activity {
 			public View getView(int position, View convertView, ViewGroup parent) {
 				View view = super.getView(position, convertView, parent);
 
-
 				TextView lableGoods = (TextView) view
 						.findViewById(R.id.lable_car_goodsID);
 				final int goodsID = Integer.parseInt(lableGoods.getText()
 						.toString());// id转int 需要最终变量
-				// 查看商品详情
+				// 查看商品详情单击事件
 				final LinearLayout lineargoods = (LinearLayout) view
 						.findViewById(R.id.linear_car_goods);
 				lineargoods.setOnClickListener(new OnClickListener() {
@@ -246,16 +264,35 @@ public class MainActivity3 extends Activity {
 					}
 				});
 
-				//数目加减操作
+				//----------数目加减/商品选择操作-------------
 				TextView lableShooping = (TextView) view
 						.findViewById(R.id.lable_shoopingID);
 				final int shoopingID = Integer.parseInt(lableShooping.getText()
 						.toString());// id转int 需要最终变量
-				
+				//单选按钮选择商品
+				 final CheckBox checkBox = (CheckBox) view
+						.findViewById(R.id.select_all);
+				 checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+						if (isChecked) {
+							sCar=ShoppingCar.selectShoppingCarByID(q.ShoppingCarList,shoopingID);
+							//选中添加该条购物车
+							q.ShoppingChoiceCarList.add(sCar);
+							//修改选中总价格和选中数量
+							setTotalText();
+						}else {
+							//没有删除
+							sCar=ShoppingCar.selectShoppingCarByID(q.ShoppingCarList,shoopingID);
+							q.ShoppingChoiceCarList.remove(sCar);
+							//修改选中总价格和选中数量
+							setTotalText();
+						}
+					}
+				});
+				//加加单击事件
 				ImageView addImageView= (ImageView) view
 						.findViewById(R.id.btn_add);
-				
-				//加加单击事件
 				addImageView.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -263,10 +300,9 @@ public class MainActivity3 extends Activity {
 						Toast.makeText(getApplicationContext(), "数目加加", 1).show();
 					}
 				});
-				
+				//减减单击事件
 				ImageView delImageView= (ImageView) view
 						.findViewById(R.id.btn_delete);
-				//减减单击事件
 				delImageView.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {

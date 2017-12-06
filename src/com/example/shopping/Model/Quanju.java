@@ -19,6 +19,9 @@ public class Quanju extends Application {
 	public List<User> UserList = new ArrayList<User>();
 	// 首页轮播图存储
 	public int[] bannerImageUrls;
+	
+	// 选择中的购物车商品
+	public List<ShoppingCar> ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
 	// 首页轮播图存储
 	public int[] bannerImageUrls2;
 	//当前登录数据

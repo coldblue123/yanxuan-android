@@ -250,6 +250,7 @@ public class MainActivity extends Activity {
 	private void addGridView() {
 		// 填充容器定位
 		ll = (LinearLayout) findViewById(R.id.fujin_btnlist_tl);
+		ll.removeAllViews();//清空布局
 		// 设置GridView属性
 		gridView = new MyGridView(this);// 注意这里使用的是MyGridView,如果使用GridView的话，只会显示一行多一点，第二行显示不完全，使用MyGridView的话，能够完全显示出来。commend
 		gridView.setNumColumns(2);

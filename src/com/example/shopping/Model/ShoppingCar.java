@@ -133,7 +133,7 @@ public class ShoppingCar {
 	// ***************公共方法***************************
 
 	// 查询单个记录
-	public ShoppingCar selectShoppingCarByID(List<ShoppingCar> list, int id) {
+	public static ShoppingCar selectShoppingCarByID(List<ShoppingCar> list, int id) {
 		ShoppingCar l = new ShoppingCar();
 		for (ShoppingCar shoppingCar : list) {
 			if (shoppingCar.ID == id) {
