@@ -44,10 +44,11 @@ public class MainActivity3 extends Activity {
 	private LinearLayout ll;
 	private ArrayList<HashMap<String, Object>> data_list;// 获取列表数据
 	private double total;// 总价
-	List<ShoppingCar> list;//数据
-	ShoppingCar sCar;//单条购物车数据
+	List<ShoppingCar> list;// 数据
+	ShoppingCar sCar;// 单条购物车数据
 	private ScrollView mScrollView;
 	DecimalFormat df = new DecimalFormat("######0.00");
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,20 +57,20 @@ public class MainActivity3 extends Activity {
 		// 底部导航跳转页面方法
 		routerPageFun();
 		// 购物车动态加载
-		list=ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);
+		list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);
 		this.addCarGridView((LinearLayout) MainActivity3.this
-				.findViewById(R.id.fujin_btnlist_t2),list );
-		//初始化选中数据--测试 
-		q.ShoppingChoiceCarList=new  ArrayList<ShoppingCar>();
-		//修改选中总价格和选中数量
+				.findViewById(R.id.fujin_btnlist_t2), list);
+		// 初始化选中数据--测试
+		q.ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
+		// 修改选中总价格和选中数量
 		setTotalText();
 		// 热门推荐动态加载
 		this.addGridView((LinearLayout) MainActivity3.this
 				.findViewById(R.id.fujin_btnlist_tl), Goods.selectGoodsByTop(
 				Goods.sortGoodsListBySort(q.GoodsList, 0), 6));
 		mScrollView = (ScrollView) findViewById(R.id.scrollView1);
-		//位置定位
-		mScrollView.smoothScrollTo(0,20);
+		// 位置定位
+		mScrollView.smoothScrollTo(0, 20);
 	}
 
 	@Override
@@ -78,28 +79,27 @@ public class MainActivity3 extends Activity {
 		getMenuInflater().inflate(R.menu.main_activity3, menu);
 		return true;
 	}
-	
-	//修改选中总价格和选中数量
+
+	// 修改选中总价格和选中数量
 	public void setTotalText() {
-		//合计数量统计
-		TextView tv=(TextView) MainActivity3.this
-		.findViewById(R.id.shopping_much);
-		tv.setText("已选（"+q.ShoppingChoiceCarList.size()+"）");
-		//是否选择同步
-		CheckBox cbBox=(CheckBox) MainActivity3.this
-		.findViewById(R.id.shopping_ok);
-		//判断是否有选择
-		if (q.ShoppingChoiceCarList.size()>0)
+		// 合计数量统计
+		TextView tv = (TextView) MainActivity3.this
+				.findViewById(R.id.shopping_much);
+		tv.setText("已选（" + q.ShoppingChoiceCarList.size() + "）");
+		// 是否选择同步
+		CheckBox cbBox = (CheckBox) MainActivity3.this
+				.findViewById(R.id.shopping_ok);
+		// 判断是否有选择
+		if (q.ShoppingChoiceCarList.size() > 0)
 			cbBox.setChecked(true);
 		else
 			cbBox.setChecked(false);
-		TextView tvtotal=(TextView) MainActivity3.this
-		.findViewById(R.id.textView_total);
-		total=ShoppingCar.getTotal(q.ShoppingChoiceCarList);
-		tvtotal.setText("¥ "+df.format(total));
+		TextView tvtotal = (TextView) MainActivity3.this
+				.findViewById(R.id.textView_total);
+		total = ShoppingCar.getTotal(q.ShoppingChoiceCarList);
+		tvtotal.setText("¥ " + df.format(total));
 	}
-	
-	
+
 	// 底部导航跳转页面方法
 	public void routerPageFun() {
 		layout_menu_1 = (LinearLayout) findViewById(R.id.layout_menu_1);
@@ -155,7 +155,7 @@ public class MainActivity3 extends Activity {
 	private void addGridView(LinearLayout addll, List<Goods> list) {
 		// 填充容器定位
 		ll = addll;
-		ll.removeAllViews();//清空布局
+		ll.removeAllViews();// 清空布局
 		// 设置GridView属性
 		gridView = new MyGridView(this);// 注意这里使用的是MyGridView,如果使用GridView的话，只会显示一行多一点，第二行显示不完全，使用MyGridView的话，能够完全显示出来。commend
 		gridView.setNumColumns(2);
@@ -209,13 +209,12 @@ public class MainActivity3 extends Activity {
 		gridView.setAdapter(adapter); // 把适配器设置给ListView控件
 	}
 
-	
 	// 添加购物车视图
 	@SuppressLint("InlinedApi")
 	private void addCarGridView(LinearLayout addll, List<ShoppingCar> list) {
 		// 填充容器定位
 		ll = addll;
-		ll.removeAllViews();//清空布局
+		ll.removeAllViews();// 清空布局
 		// 设置GridView属性
 		gridView = new MyGridView(this);// 注意这里使用的是MyGridView,如果使用GridView的话，只会显示一行多一点，第二行显示不完全，使用MyGridView的话，能够完全显示出来。commend
 		gridView.setNumColumns(1);
@@ -227,21 +226,22 @@ public class MainActivity3 extends Activity {
 		ll.addView(gridView, new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 	}
-	
+
 	// 购车填充数据
 	public void setCarSimple(List<ShoppingCar> list) {
 		// 模糊查询 list转化为HashMap//不要用static
 
 		data_list = ShoppingCar.getListToHashMap(list);
 		SimpleAdapter adapter = new SimpleAdapter // 调用SimpleAdapter适配器
-		(
-				MainActivity3.this, // 当前类
+		(MainActivity3.this, // 当前类
 				data_list, // 选项所有数据
 				R.layout.shopping_car_item, // 与数据匹配的布局
-				new String[] { "Image", "Time", "GoodsName", "Num", "PriceStr","ShoopingID","GoodsID"}, // 字符串数组，里面放参数名。
+				new String[] { "Image", "Time", "GoodsName", "Num", "PriceStr",
+						"ShoopingID", "GoodsID" }, // 字符串数组，里面放参数名。
 				new int[] { R.id.show_car_img, R.id.goods_intro,
-						R.id.goods_name, R.id.goods_num, R.id.price_car_show , R.id.lable_shoopingID, R.id.lable_car_goodsID  } // int数组，里面放数据的控件id，位置要与参数名一一对应。
-		){
+						R.id.goods_name, R.id.goods_num, R.id.price_car_show,
+						R.id.lable_shoopingID, R.id.lable_car_goodsID } // int数组，里面放数据的控件id，位置要与参数名一一对应。
+		) {
 			// SimpleAdapter每条记录的事件
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
@@ -264,50 +264,90 @@ public class MainActivity3 extends Activity {
 					}
 				});
 
-				//----------数目加减/商品选择操作-------------
+				// ----------数目加减/商品选择操作-------------
 				TextView lableShooping = (TextView) view
 						.findViewById(R.id.lable_shoopingID);
 				final int shoopingID = Integer.parseInt(lableShooping.getText()
 						.toString());// id转int 需要最终变量
-				//单选按钮选择商品
-				 final CheckBox checkBox = (CheckBox) view
+				// 单选按钮选择商品
+				final CheckBox checkBox = (CheckBox) view
 						.findViewById(R.id.select_all);
-				 checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+				checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 					@Override
-					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					public void onCheckedChanged(CompoundButton buttonView,
+							boolean isChecked) {
 						if (isChecked) {
-							sCar=ShoppingCar.selectShoppingCarByID(q.ShoppingCarList,shoopingID);
-							//选中添加该条购物车
+							sCar = ShoppingCar.selectShoppingCarByID(
+									q.ShoppingCarList, shoopingID);
+							// 选中添加该条购物车
 							q.ShoppingChoiceCarList.add(sCar);
-							//修改选中总价格和选中数量
+							// 修改选中总价格和选中数量
 							setTotalText();
-						}else {
-							//没有删除
-							sCar=ShoppingCar.selectShoppingCarByID(q.ShoppingCarList,shoopingID);
+						} else {
+							// 没有删除
+							sCar = ShoppingCar.selectShoppingCarByID(
+									q.ShoppingCarList, shoopingID);
 							q.ShoppingChoiceCarList.remove(sCar);
-							//修改选中总价格和选中数量
+							// 修改选中总价格和选中数量
 							setTotalText();
 						}
 					}
 				});
-				//加加单击事件
-				ImageView addImageView= (ImageView) view
+
+				final TextView txtGoodsNum = (TextView) view
+						.findViewById(R.id.goods_num);
+				// 加加单击事件
+				ImageView addImageView = (ImageView) view
 						.findViewById(R.id.btn_add);
 				addImageView.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						// TODO 自动生成的方法存根
-						Toast.makeText(getApplicationContext(), "数目加加", 1).show();
+						sCar = ShoppingCar.selectShoppingCarByID(
+								q.ShoppingCarList, shoopingID);
+						boolean found = q.ShoppingChoiceCarList.contains(sCar); // 是否包含在选择中
+						// 修改选中的购物商品
+						int index = q.ShoppingChoiceCarList.indexOf(sCar);// 选中索引值
+						// 购物车中的一定修改
+						int index2 = q.ShoppingCarList.indexOf(sCar);// 索引值没有为-1
+						int newNum = sCar.getNum() + 1;
+						sCar.setNum(newNum);
+						if (found) {
+							q.ShoppingChoiceCarList.set(index, sCar);// 修改
+						}
+						q.ShoppingCarList.set(index2, sCar);// 修改
+						// 修改选中总价格和选中数量
+						setTotalText();
+						txtGoodsNum.setText(""+sCar.getNum());
 					}
 				});
-				//减减单击事件
-				ImageView delImageView= (ImageView) view
+				// 减减单击事件
+				ImageView delImageView = (ImageView) view
 						.findViewById(R.id.btn_delete);
 				delImageView.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						// TODO 自动生成的方法存根
-						Toast.makeText(getApplicationContext(), "数目--", 1).show();
+						sCar = ShoppingCar.selectShoppingCarByID(
+								q.ShoppingCarList, shoopingID);
+						if (sCar.getNum()==1) {
+							Toast.makeText(getApplicationContext(),
+									"受不了,不能再减少了o(*￣︶￣*)o", 1).show();
+						}else {
+							
+							boolean found = q.ShoppingChoiceCarList.contains(sCar); // 是否包含在选择中
+							// 修改选中的购物商品
+							int index = q.ShoppingChoiceCarList.indexOf(sCar);// 选中索引值
+							// 购物车中的一定修改
+							int index2 = q.ShoppingCarList.indexOf(sCar);// 索引值没有为-1
+							int newNum = sCar.getNum() - 1;
+							sCar.setNum(newNum);
+							if (found) {
+								q.ShoppingChoiceCarList.set(index, sCar);// 修改
+							}
+							q.ShoppingCarList.set(index2, sCar);// 修改
+							// 修改选中总价格和选中数量
+							setTotalText();
+							txtGoodsNum.setText(""+sCar.getNum());
+						}	
 					}
 				});
 				return view;
