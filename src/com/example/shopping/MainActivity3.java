@@ -8,6 +8,8 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,7 +59,7 @@ public class MainActivity3 extends Activity {
 		// 底部导航跳转页面方法
 		routerPageFun();
 		// 购物车动态加载
-		list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);
+		list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
 		this.addCarGridView((LinearLayout) MainActivity3.this
 				.findViewById(R.id.fujin_btnlist_t2), list);
 		// 初始化选中数据--测试
@@ -69,6 +71,8 @@ public class MainActivity3 extends Activity {
 				.findViewById(R.id.fujin_btnlist_tl), Goods.selectGoodsByTop(
 				Goods.sortGoodsListBySort(q.GoodsList, 0), 6));
 		mScrollView = (ScrollView) findViewById(R.id.scrollView1);
+		shoppingCarDel();//删除事件监听
+		shoppingGoods();//下单事件监听
 		// 位置定位
 		mScrollView.smoothScrollTo(0, 20);
 	}
@@ -317,7 +321,7 @@ public class MainActivity3 extends Activity {
 						q.ShoppingCarList.set(index2, sCar);// 修改
 						// 修改选中总价格和选中数量
 						setTotalText();
-						txtGoodsNum.setText(""+sCar.getNum());
+						txtGoodsNum.setText("" + sCar.getNum());
 					}
 				});
 				// 减减单击事件
@@ -328,12 +332,13 @@ public class MainActivity3 extends Activity {
 					public void onClick(View v) {
 						sCar = ShoppingCar.selectShoppingCarByID(
 								q.ShoppingCarList, shoopingID);
-						if (sCar.getNum()==1) {
+						if (sCar.getNum() == 1) {
 							Toast.makeText(getApplicationContext(),
 									"受不了,不能再减少了o(*￣︶￣*)o", 1).show();
-						}else {
-							
-							boolean found = q.ShoppingChoiceCarList.contains(sCar); // 是否包含在选择中
+						} else {
+
+							boolean found = q.ShoppingChoiceCarList
+									.contains(sCar); // 是否包含在选择中
 							// 修改选中的购物商品
 							int index = q.ShoppingChoiceCarList.indexOf(sCar);// 选中索引值
 							// 购物车中的一定修改
@@ -346,8 +351,8 @@ public class MainActivity3 extends Activity {
 							q.ShoppingCarList.set(index2, sCar);// 修改
 							// 修改选中总价格和选中数量
 							setTotalText();
-							txtGoodsNum.setText(""+sCar.getNum());
-						}	
+							txtGoodsNum.setText("" + sCar.getNum());
+						}
 					}
 				});
 				return view;
@@ -356,5 +361,91 @@ public class MainActivity3 extends Activity {
 
 		gridView.setAdapter(adapter); // 把适配器设置给ListView控件
 	}
+
+	// 删除事件监听
+	private void shoppingCarDel() {
+		TextView txtGoodsCarDel = (TextView) MainActivity3.this
+				.findViewById(R.id.textView_del);
+		txtGoodsCarDel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (q.ShoppingChoiceCarList.size() > 0) {
+					AlertDialog show = new AlertDialog.Builder(
+							MainActivity3.this)
+							.setTitle("删除提示框")
+							.setMessage("确认删除选中商品？")
+							.setPositiveButton("确定",
+									new DialogInterface.OnClickListener() {
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											// 删除对应数据
+											q.ShoppingCarList
+													.removeAll(q.ShoppingChoiceCarList);
+											q.ShoppingChoiceCarList.clear();
+											// 更新操作
+											list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
+											addCarGridView((LinearLayout) MainActivity3.this
+													.findViewById(R.id.fujin_btnlist_t2), list);
+											setTotalText();
+											// 位置定位
+											mScrollView.smoothScrollTo(0, 20);//最好记住触摸时的定位
+										}
+									}).setNegativeButton("取消", null).show();
+				} else {// 没有选择
+
+					Toast.makeText(getApplicationContext(),
+							"请选择商品", 1).show();
+				}
+
+			}
+		});
+	}
+	
+	// 下单事件监听
+		private void shoppingGoods() {
+			TextView txtGoodsXiadan = (TextView) MainActivity3.this
+					.findViewById(R.id.xiadan);
+			txtGoodsXiadan.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if (q.ShoppingChoiceCarList.size() > 0) {
+						AlertDialog show = new AlertDialog.Builder(
+								MainActivity3.this)
+								.setTitle("下单提示框")
+								.setMessage("确认下单选中商品？")
+								.setPositiveButton("确定",
+										new DialogInterface.OnClickListener() {
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+												// 修改对应数据
+												for (int i = 0; i < q.ShoppingChoiceCarList.size(); i++) {
+													sCar = q.ShoppingChoiceCarList.get(i);
+													int index2 = q.ShoppingCarList.indexOf(sCar);
+													sCar.setSign(1);
+													q.ShoppingCarList.set(index2, sCar);// 修改
+												}
+												q.ShoppingChoiceCarList.clear();
+												// 更新操作
+												list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
+												addCarGridView((LinearLayout) MainActivity3.this
+														.findViewById(R.id.fujin_btnlist_t2), list);
+												setTotalText();
+												// 位置定位
+												mScrollView.smoothScrollTo(0, 20);//最好记住触摸时的定位
+												Toast.makeText(getApplicationContext(),
+														"下单成功", 1).show();
+											}
+										}).setNegativeButton("取消", null).show();
+					} else {// 没有选择
+
+						Toast.makeText(getApplicationContext(),
+								"请选择商品", 1).show();
+					}
+
+				}
+			});
+		}
 
 }

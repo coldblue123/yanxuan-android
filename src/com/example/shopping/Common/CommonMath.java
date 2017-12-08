@@ -96,7 +96,6 @@ public class CommonMath extends Activity {
 		return b;
 	}
 	
-	
 
 	// 轮播图初始化方法-----报错不能用
 	@SuppressLint("NewApi")

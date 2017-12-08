@@ -16,13 +16,13 @@
         android:text="购物车" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:textSize="16sp"
         android:textColor="#323232"
-        android:text="编辑" />
+        android:text="删除" />
 
 </RelativeLayout>
