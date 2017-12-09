@@ -57,7 +57,7 @@ public class CommonMath extends Activity {
 		return r_id;
 	}
 
-	// 返回圖片組資源ID
+	// 返回图片组资源ID
 	public static int[] getImageResourceListID(String imageName) {
 		String[] str = imageName.split(",");
 		int[] r_ids = {};

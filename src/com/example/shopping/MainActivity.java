@@ -249,9 +249,7 @@ public class MainActivity extends Activity implements OnRefreshListener{
 						"position-->" + info.getContent(), Toast.LENGTH_SHORT)
 						.show();
 			}
-
 		}
-
 	};
 
 	// 添加视图
@@ -322,8 +320,8 @@ public class MainActivity extends Activity implements OnRefreshListener{
 		 * } });
 		 */
 	}
-
-	   @Override
+          //刷新操作
+	        @Override
 			public void onRefresh() {
 				MyHadler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 1*1000);
 				addGridView();

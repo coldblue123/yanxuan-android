@@ -35,9 +35,8 @@ import com.example.shopping.Model.Goods;
 import com.example.shopping.Model.Quanju;
 import com.example.shopping.Model.ShoppingCar;
 
-@SuppressLint("HandlerLeak") 
-public class MainActivity3 
-extends Activity implements OnRefreshListener{
+@SuppressLint("HandlerLeak")
+public class MainActivity3 extends Activity implements OnRefreshListener {
 	private LinearLayout layout_menu_1, layout_menu_2, layout_menu_3,
 			layout_menu_4;
 	Intent intent;
@@ -55,9 +54,10 @@ extends Activity implements OnRefreshListener{
 	ShoppingCar sCar;// 单条购物车数据
 	private ScrollView mScrollView;
 	DecimalFormat df = new DecimalFormat("######0.00");
-	private SwipeRefreshLayout refresh_layout = null;//刷新控件
-	private static final int REFRESH_COMPLETE=200;
-	SimpleAdapter adapter=null;
+	private SwipeRefreshLayout refresh_layout = null;// 刷新控件
+	private static final int REFRESH_COMPLETE = 200;
+	SimpleAdapter adapter = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,11 +66,11 @@ extends Activity implements OnRefreshListener{
 		// 底部导航跳转页面方法
 		routerPageFun();
 		// 购物车动态加载
-		list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
+		list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);// 查找没被购买的
 		this.addCarGridView((LinearLayout) MainActivity3.this
 				.findViewById(R.id.fujin_btnlist_t2), list);
 		// 初始化选中数据--测试
-		//q.ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
+		// q.ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
 		// 修改选中总价格和选中数量
 		setTotalText();
 		// 热门推荐动态加载
@@ -78,17 +78,18 @@ extends Activity implements OnRefreshListener{
 				.findViewById(R.id.fujin_btnlist_tl), Goods.selectGoodsByTop(
 				Goods.sortGoodsListBySort(q.GoodsList, 0), 6));
 		mScrollView = (ScrollView) findViewById(R.id.scrollView1);
-		shoppingCarDel();//删除事件监听
-		shoppingGoods();//下单事件监听
+		shoppingCarDel();// 删除事件监听
+		shoppingGoods();// 下单事件监听
 		// 位置定位
-		mScrollView.smoothScrollTo(0, 20);
-		
-		//刷新操作
-		refresh_layout = (SwipeRefreshLayout) this.findViewById(R.id.refresh_layout);
-		refresh_layout.setColorScheme(R.color.green, R.color.gray, R.color.blue_50, R.color.light_white);//设置跑动的颜色值
-		refresh_layout.setOnRefreshListener(this);//设置下拉的监听
+		mScrollView.smoothScrollTo(0, 0);
 
-
+		// 刷新操作
+		refresh_layout = (SwipeRefreshLayout) this
+				.findViewById(R.id.refresh_layout);
+		refresh_layout.setColorScheme(R.color.green, R.color.gray,
+				R.color.blue_50, R.color.light_white);// 设置跑动的颜色值
+		refresh_layout.setOnRefreshListener(this);// 设置下拉的监听
+	
 	}
 
 	@Override
@@ -249,16 +250,17 @@ extends Activity implements OnRefreshListener{
 	public void setCarSimple(List<ShoppingCar> list) {
 		// 模糊查询 list转化为HashMap//不要用static
 
-		data_list = ShoppingCar.getListToHashMap(list);
-	    adapter = new SimpleAdapter // 调用SimpleAdapter适配器
+		data_list = ShoppingCar.getListToHashMap(list, q.ShoppingChoiceCarList);
+		adapter = new SimpleAdapter // 调用SimpleAdapter适配器
 		(MainActivity3.this, // 当前类
 				data_list, // 选项所有数据
 				R.layout.shopping_car_item, // 与数据匹配的布局
-				new String[] { "Image", "Time", "GoodsName", "Num", "PriceStr",
-						"ShoopingID", "GoodsID" }, // 字符串数组，里面放参数名。
-				new int[] { R.id.show_car_img, R.id.goods_intro,
-						R.id.goods_name, R.id.goods_num, R.id.price_car_show,
-						R.id.lable_shoopingID, R.id.lable_car_goodsID } // int数组，里面放数据的控件id，位置要与参数名一一对应。
+				new String[] { "Choice", "Image", "Time", "GoodsName", "Num",
+						"PriceStr", "ShoopingID", "GoodsID" }, // 字符串数组，里面放参数名。
+				new int[] { R.id.select_all, R.id.show_car_img,
+						R.id.goods_intro, R.id.goods_name, R.id.goods_num,
+						R.id.price_car_show, R.id.lable_shoopingID,
+						R.id.lable_car_goodsID } // int数组，里面放数据的控件id，位置要与参数名一一对应。
 		) {
 			// SimpleAdapter每条记录的事件
 			@Override
@@ -398,127 +400,125 @@ extends Activity implements OnRefreshListener{
 													.removeAll(q.ShoppingChoiceCarList);
 											q.ShoppingChoiceCarList.clear();
 											// 更新操作
-											list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
-											addCarGridView((LinearLayout) MainActivity3.this
-													.findViewById(R.id.fujin_btnlist_t2), list);
+											list = ShoppingCar
+													.selectShoppingBySign(
+															q.ShoppingCarList,
+															0);// 查找没被购买的
+											addCarGridView(
+													(LinearLayout) MainActivity3.this
+															.findViewById(R.id.fujin_btnlist_t2),
+													list);
 											setTotalText();
 											// 位置定位
-											mScrollView.smoothScrollTo(0, 20);//最好记住触摸时的定位
+											mScrollView.smoothScrollTo(0, 20);// 最好记住触摸时的定位
 										}
 									}).setNegativeButton("取消", null).show();
 				} else {// 没有选择
 
-					Toast.makeText(getApplicationContext(),
-							"请选择商品", 1).show();
+					Toast.makeText(getApplicationContext(), "请选择商品", 1).show();
 				}
 
 			}
 		});
 	}
-	
+
 	// 下单事件监听
-		private void shoppingGoods() {
-			TextView txtGoodsXiadan = (TextView) MainActivity3.this
-					.findViewById(R.id.xiadan);
-			txtGoodsXiadan.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					if (q.ShoppingChoiceCarList.size() > 0) {
-						AlertDialog show = new AlertDialog.Builder(
-								MainActivity3.this)
-								.setTitle("下单提示框")
-								.setMessage("确认下单选中商品？")
-								.setPositiveButton("确定",
-										new DialogInterface.OnClickListener() {
-											public void onClick(
-													DialogInterface dialog,
-													int which) {
-												// 修改对应数据
-												for (int i = 0; i < q.ShoppingChoiceCarList.size(); i++) {
-													sCar = q.ShoppingChoiceCarList.get(i);
-													int index2 = q.ShoppingCarList.indexOf(sCar);
-													sCar.setSign(1);
-													q.ShoppingCarList.set(index2, sCar);// 修改
-												}
-												q.ShoppingChoiceCarList.clear();
-												// 更新操作
-												list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
-												addCarGridView((LinearLayout) MainActivity3.this
-														.findViewById(R.id.fujin_btnlist_t2), list);
-												setTotalText();
-												// 位置定位
-												mScrollView.smoothScrollTo(0, 20);//最好记住触摸时的定位
-												Toast.makeText(getApplicationContext(),
-														"下单成功", 1).show();
-											}
-										}).setNegativeButton("取消", null).show();
-					} else {// 没有选择
-
-						Toast.makeText(getApplicationContext(),
-								"请选择商品", 1).show();
-					}
-
-				}
-			});
-		}
-		
-
-	    @Override
-		public void onRefresh() {
-			MyHadler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 1*1000);
-			  // 购物车动态加载
-			list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
-			addCarGridView((LinearLayout) MainActivity3.this
-					.findViewById(R.id.fujin_btnlist_t2), list);
-			// 初始化选中数据--测试
-			q.ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
-			// 修改选中总价格和选中数量
-			setTotalText();
-			Toast.makeText(MainActivity3.this, "正在刷新", Toast.LENGTH_LONG).show();
-		}
-	 
-		private Handler MyHadler =new Handler(){
-			public void handleMessage(android.os.Message msg) {
-				
-				switch (msg.what) {
-				case REFRESH_COMPLETE:
-					Toast.makeText(MainActivity3.this, "刷新完成", Toast.LENGTH_LONG).show();
-					refresh_layout.setRefreshing(false);
-					break;
-				default:
-					break;
-				}
-				
-			};
-		};
-
-	/*	@Override
-		public void onRefresh() {
-			new Thread(new Runnable() {//下拉触发的函数，这里是谁1s然后加入一个数据，然后更新界面
-				@Override
-				public void run() {
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				 	handler.sendEmptyMessage(0);
-				}
-			}).start();
-		}
-		private MyHandler handler = new MyHandler();
-		private class MyHandler extends Handler{
+	private void shoppingGoods() {
+		TextView txtGoodsXiadan = (TextView) MainActivity3.this
+				.findViewById(R.id.xiadan);
+		txtGoodsXiadan.setOnClickListener(new OnClickListener() {
 			@Override
-			public void handleMessage(Message msg) {
-				switch (msg.what) {
-				case 0:
-					refresh_layout.setRefreshing(false);
-					//adapter.notifyDataSetChanged();
-					break;
-				default:
-					break;
+			public void onClick(View v) {
+				if (q.ShoppingChoiceCarList.size() > 0) {
+					AlertDialog show = new AlertDialog.Builder(
+							MainActivity3.this)
+							.setTitle("下单提示框")
+							.setMessage("确认下单选中商品？")
+							.setPositiveButton("确定",
+									new DialogInterface.OnClickListener() {
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											// 修改对应数据
+											for (int i = 0; i < q.ShoppingChoiceCarList
+													.size(); i++) {
+												sCar = q.ShoppingChoiceCarList
+														.get(i);
+												int index2 = q.ShoppingCarList
+														.indexOf(sCar);
+												sCar.setSign(1);
+												q.ShoppingCarList.set(index2,
+														sCar);// 修改
+											}
+											q.ShoppingChoiceCarList.clear();
+											// 更新操作
+											list = ShoppingCar
+													.selectShoppingBySign(
+															q.ShoppingCarList,
+															0);// 查找没被购买的
+											addCarGridView(
+													(LinearLayout) MainActivity3.this
+															.findViewById(R.id.fujin_btnlist_t2),
+													list);
+											setTotalText();
+											// 位置定位
+											mScrollView.smoothScrollTo(0, 20);// 最好记住触摸时的定位
+											Toast.makeText(
+													getApplicationContext(),
+													"下单成功", 1).show();
+										}
+									}).setNegativeButton("取消", null).show();
+				} else {// 没有选择
+
+					Toast.makeText(getApplicationContext(), "请选择商品", 1).show();
 				}
+
 			}
-		}
-		*/
+		});
+	}
+
+	// 页面刷新加载
+	@Override
+	public void onRefresh() {
+		MyHadler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 1 * 1000);
+		// 购物车动态加载
+		list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);// 查找没被购买的
+		addCarGridView(
+				(LinearLayout) MainActivity3.this
+						.findViewById(R.id.fujin_btnlist_t2),
+				list);
+		// 位置定位
+		mScrollView.smoothScrollTo(0, 0);
+		Toast.makeText(MainActivity3.this, "正在刷新", Toast.LENGTH_LONG).show();
+	}
+
+	private Handler MyHadler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+
+			switch (msg.what) {
+			case REFRESH_COMPLETE:
+				Toast.makeText(MainActivity3.this, "刷新完成", Toast.LENGTH_LONG)
+						.show();
+				refresh_layout.setRefreshing(false);
+				break;
+			default:
+				break;
+			}
+
+		};
+	};
+
+	/*
+	 * @Override public void onRefresh() { new Thread(new Runnable()
+	 * {//下拉触发的函数，这里是谁1s然后加入一个数据，然后更新界面
+	 * 
+	 * @Override public void run() { try { Thread.sleep(1000); } catch
+	 * (InterruptedException e) { e.printStackTrace(); }
+	 * handler.sendEmptyMessage(0); } }).start(); } private MyHandler handler =
+	 * new MyHandler(); private class MyHandler extends Handler{
+	 * 
+	 * @Override public void handleMessage(Message msg) { switch (msg.what) {
+	 * case 0: refresh_layout.setRefreshing(false);
+	 * //adapter.notifyDataSetChanged(); break; default: break; } } }
+	 */
 }

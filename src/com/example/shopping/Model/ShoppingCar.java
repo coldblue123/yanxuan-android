@@ -250,7 +250,7 @@ public class ShoppingCar {
 	
 	// 数据组装对应模型
 		public static ArrayList<HashMap<String, Object>> getListToHashMap(
-				List<ShoppingCar> list) {
+				List<ShoppingCar> list,List<ShoppingCar> choiceList) {
 			ArrayList<HashMap<String, Object>> list2 = new ArrayList<HashMap<String, Object>>();
 			for (ShoppingCar shoppingCar : list) {
 				// 添加数据给map集合
@@ -264,6 +264,11 @@ public class ShoppingCar {
 				map1.put("Num", shoppingCar.Num);
 				map1.put("Time","加入时间:"+shoppingCar.Time);
 				map1.put("Image", CommonMath.getImageResourceID(shoppingCar.Image));
+				if (choiceList.indexOf(shoppingCar)>=0) {
+					map1.put("Choice",true);
+				}else {
+					map1.put("Choice",false);
+				}
 				// -----把map集合放进list集合里---------
 				list2.add(map1); // 添加数据给list集合
 			}
