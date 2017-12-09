@@ -89,7 +89,7 @@ public class MainActivity3 extends Activity implements OnRefreshListener {
 		refresh_layout.setColorScheme(R.color.green, R.color.gray,
 				R.color.blue_50, R.color.light_white);// 设置跑动的颜色值
 		refresh_layout.setOnRefreshListener(this);// 设置下拉的监听
-	
+
 	}
 
 	@Override
@@ -421,7 +421,6 @@ public class MainActivity3 extends Activity implements OnRefreshListener {
 			}
 		});
 	}
-
 	// 下单事件监听
 	private void shoppingGoods() {
 		TextView txtGoodsXiadan = (TextView) MainActivity3.this
@@ -429,7 +428,13 @@ public class MainActivity3 extends Activity implements OnRefreshListener {
 		txtGoodsXiadan.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (q.ShoppingChoiceCarList.size() > 0) {
+				// 如果没有登录则跳转到登录界面
+				if (q.currentUser == null) {
+					Toast.makeText(getApplicationContext(), "请登录", 1).show();
+					intent = new Intent();
+					intent.setClass(MainActivity3.this, Login.class);
+					startActivity(intent);
+				} else if (q.ShoppingChoiceCarList.size() > 0) {
 					AlertDialog show = new AlertDialog.Builder(
 							MainActivity3.this)
 							.setTitle("下单提示框")

@@ -73,13 +73,13 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/button1"
+        android:id="@+id/login_go"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/linearLayout1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="#F38989"
+        android:background="#B06563"
         android:textColor="#fff"
         android:textSize="16sp"
         android:layout_marginLeft="20dp"

@@ -21,22 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#444444"
+            android:maxLines="3"
+            android:ellipsize="end"
             android:textSize="17sp"
-            android:text="这是一首简单的小情歌这是一首简单的小情歌" 
-            android:ellipsize="end"
-			android:singleLine="true" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#838383"
-            android:textSize="16sp"
-            android:text="唱出我们的离合" 
-            android:ellipsize="end"
-			android:singleLine="true" 
-            android:layout_marginBottom="3dp"
-            android:layout_marginTop="3dp"/>
+            android:text="这是一首简单的小情歌这是一首简单的小情歌" />
 
         <TextView
             android:id="@+id/textView3"
