@@ -8,48 +8,48 @@
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="120dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="#1d1d1d" >
 
         <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/head_pic" />
-
-        <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/user_msg_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/imageView1"
+            android:layout_marginLeft="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/header_pic2" />
+
+        <TextView
+            android:id="@+id/user_msg_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/user_msg_header"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/imageView1"
-            android:text="调皮的二哈"
+            android:layout_toRightOf="@+id/user_msg_header"
+            android:text=""
             android:textColor="#fff"
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/user_msg_name2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_below="@+id/textView1"
+            android:layout_alignLeft="@+id/user_msg_name1"
+            android:layout_below="@+id/user_msg_name1"
             android:layout_marginTop="6dp"
-            android:text="二哈也快乐"
             android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/login_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/textView1"
+            android:layout_below="@+id/user_msg_name1"
             android:layout_marginRight="10dp"
-            android:text="签到    >"
             android:textColor="#fff"
             android:textSize="14sp" />
     </RelativeLayout>

@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_toRightOf="@+id/price7"
+                    android:layout_toRightOf="@+id/price4"
                     android:src="@drawable/show_com_2" />
             </RelativeLayout>
         </LinearLayout>

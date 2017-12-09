@@ -1,5 +1,8 @@
 package com.example.shopping;
 
+import com.example.shopping.Model.Quanju;
+import com.example.shopping.Model.User;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity4 extends Activity {
 	private LinearLayout 
@@ -18,13 +22,21 @@ public class MainActivity4 extends Activity {
 	layout_menu_4;
 	Intent intent;
 	private ImageView imagv_1,imagv_2,imagv_3,imagv_4;
-	private TextView textV_1,textV_2,textV_3,textV_4;
+	private TextView textV_1,textV_2,textV_3,textV_4, user_msg_name1, user_msg_name2, login_state;
+	private ImageView user_msg_header;
+	private User user = new User();
+	
+	Quanju q; // 定义全局类
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_activity4);
 		// 底部导航跳转页面方法
 		routerPageFun();
+		// 获取所有表数据
+		q = (Quanju) getApplicationContext();
+		
+		changeUserInfo();
 	}
 
 	@Override
@@ -73,6 +85,44 @@ public class MainActivity4 extends Activity {
 			    finish();
 			}
 		});
+		
+	}
+
+	// 改变用户信息
+	public void changeUserInfo() {
+		
+		user_msg_name1 = (TextView) MainActivity4.this.findViewById(R.id.user_msg_name1);
+		user_msg_name2 = (TextView) MainActivity4.this.findViewById(R.id.user_msg_name2);
+		login_state = (TextView) MainActivity4.this.findViewById(R.id.login_state);
+		user_msg_header= (ImageView) MainActivity4.this.findViewById(R.id.user_msg_header);
+		
+		// 用户未登录时
+		if (q.currentUser == null) {
+			user_msg_name1.setText("请登录");
+			user_msg_name2.setText("登录体验更优");
+			login_state.setText("登录    >");
+			user_msg_header.setImageResource(R.drawable.header_pic2);
+			
+			login_state.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Toast.makeText(getApplicationContext(),
+							"请登录", 1).show();
+					intent = new Intent();
+					intent.setClass(MainActivity4.this, Login.class);
+					startActivity(intent);
+				}
+			});
+			
+		} else {
+			user_msg_name1.setText(user.getName().toString());
+			user_msg_name2.setText("二哈也快乐");
+			login_state.setText("签到    >");
+			user_msg_header.setImageResource(R.drawable.header_pic);
+		}
+		
 		
 	}
 

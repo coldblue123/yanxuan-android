@@ -423,7 +423,14 @@ extends Activity implements OnRefreshListener{
 			txtGoodsXiadan.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					if (q.ShoppingChoiceCarList.size() > 0) {
+					// 如果没有登录则跳转到登录界面
+					if (q.currentUser == null) {
+						Toast.makeText(getApplicationContext(),
+								"请登录", 1).show();
+						intent = new Intent();
+						intent.setClass(MainActivity3.this, Login.class);
+						startActivity(intent);
+					} else if (q.ShoppingChoiceCarList.size() > 0) {
 						AlertDialog show = new AlertDialog.Builder(
 								MainActivity3.this)
 								.setTitle("下单提示框")

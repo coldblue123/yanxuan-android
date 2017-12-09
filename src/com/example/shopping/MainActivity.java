@@ -71,7 +71,7 @@ public class MainActivity extends Activity implements OnRefreshListener{
 		q.Init();// 初始化数
 		imageUrls=q.bannerImageUrls;
 		//测试数据
-		q.currentUser=q.UserList.get(0);
+//		q.currentUser=q.UserList.get(0);
 		// 热点推荐动态加载
 		this.addGridView();
 		// 页面底部导航的跳转方法

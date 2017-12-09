@@ -103,4 +103,15 @@ public class User {
 		return b;
 	}
 
+	// 获取用户名
+	public Object getName() {
+		// TODO Auto-generated method stub
+		return "admin";
+	}
+	
+	// 获取密码
+	public String getPassword() {
+		return "123";
+	}
+
 }

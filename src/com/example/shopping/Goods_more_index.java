@@ -145,7 +145,7 @@ public class Goods_more_index extends Activity {
 		// 在加载数据前设置是否循环
 		cycleViewPager.setData(views, infos, mAdCycleViewListener);
 		// 设置轮播
-		cycleViewPager.setWheel(true);
+		cycleViewPager.setWheel(false);
 
 		// 设置轮播时间，默认5000ms
 		cycleViewPager.setTime(2000);

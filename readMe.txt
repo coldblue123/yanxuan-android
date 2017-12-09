@@ -59,6 +59,9 @@
     // 超出换行
     android:ellipsize="end"
 	android:singleLine="true" 
+	//两行
+	android:ellipsize="end"
+	android:maxLines="2"
 	
 	// 不自动获取焦点
 	android:focusable="true" 

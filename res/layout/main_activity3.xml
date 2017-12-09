@@ -17,7 +17,6 @@
 
         <include layout="@layout/shopping_car_title" />
     </LinearLayout>
-
     <!-- 购物车统计 -->
 
     <LinearLayout

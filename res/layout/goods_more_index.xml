@@ -78,6 +78,15 @@
 
                 <include layout="@layout/goods_more_label4" />
             </LinearLayout>
+            
+            <!-- 标签7 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/goods_more_label7" />
+            </LinearLayout>
 
             <!-- 标签5 -->
 
@@ -96,6 +105,10 @@
 
                 <include layout="@layout/goods_more_label6" />
             </LinearLayout>
+            
+            
+
+            <!-- 标签6 -->
 
             <!-- 热点推荐 -->
 
