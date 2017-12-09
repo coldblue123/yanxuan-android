@@ -16,7 +16,13 @@
 
         <include layout="@layout/find" />
     </LinearLayout>
-
+ <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_below="@+id/linearLayout1"
+        android:layout_above="@+id/ly_show_bottom"
+        >
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
@@ -165,7 +171,7 @@
             
         </LinearLayout>
     </ScrollView>
-
+   </android.support.v4.widget.SwipeRefreshLayout>
     <LinearLayout
         android:id="@+id/ly_show_bottom"
         android:layout_width="match_parent"

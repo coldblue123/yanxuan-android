@@ -12,6 +12,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,7 +35,9 @@ import com.example.shopping.Model.Goods;
 import com.example.shopping.Model.Quanju;
 import com.example.shopping.Model.ShoppingCar;
 
-public class MainActivity3 extends Activity {
+@SuppressLint("HandlerLeak") 
+public class MainActivity3 
+extends Activity implements OnRefreshListener{
 	private LinearLayout layout_menu_1, layout_menu_2, layout_menu_3,
 			layout_menu_4;
 	Intent intent;
@@ -50,7 +55,9 @@ public class MainActivity3 extends Activity {
 	ShoppingCar sCar;// 单条购物车数据
 	private ScrollView mScrollView;
 	DecimalFormat df = new DecimalFormat("######0.00");
-
+	private SwipeRefreshLayout refresh_layout = null;//刷新控件
+	private static final int REFRESH_COMPLETE=200;
+	SimpleAdapter adapter=null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -63,7 +70,7 @@ public class MainActivity3 extends Activity {
 		this.addCarGridView((LinearLayout) MainActivity3.this
 				.findViewById(R.id.fujin_btnlist_t2), list);
 		// 初始化选中数据--测试
-		q.ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
+		//q.ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
 		// 修改选中总价格和选中数量
 		setTotalText();
 		// 热门推荐动态加载
@@ -75,6 +82,13 @@ public class MainActivity3 extends Activity {
 		shoppingGoods();//下单事件监听
 		// 位置定位
 		mScrollView.smoothScrollTo(0, 20);
+		
+		//刷新操作
+		refresh_layout = (SwipeRefreshLayout) this.findViewById(R.id.refresh_layout);
+		refresh_layout.setColorScheme(R.color.green, R.color.gray, R.color.blue_50, R.color.light_white);//设置跑动的颜色值
+		refresh_layout.setOnRefreshListener(this);//设置下拉的监听
+
+
 	}
 
 	@Override
@@ -178,7 +192,7 @@ public class MainActivity3 extends Activity {
 	public void setSimple(List<Goods> list) {
 		// 模糊查询 list转化为HashMap//不要用static
 		data_list = Goods.getListToHashMap(list);
-		SimpleAdapter adapter = new SimpleAdapter // 调用SimpleAdapter适配器
+		adapter = new SimpleAdapter // 调用SimpleAdapter适配器
 		(MainActivity3.this, // 当前类
 				data_list, // 选项所有数据
 				R.layout.find_list_item, // 与数据匹配的布局
@@ -236,7 +250,7 @@ public class MainActivity3 extends Activity {
 		// 模糊查询 list转化为HashMap//不要用static
 
 		data_list = ShoppingCar.getListToHashMap(list);
-		SimpleAdapter adapter = new SimpleAdapter // 调用SimpleAdapter适配器
+	    adapter = new SimpleAdapter // 调用SimpleAdapter适配器
 		(MainActivity3.this, // 当前类
 				data_list, // 选项所有数据
 				R.layout.shopping_car_item, // 与数据匹配的布局
@@ -447,5 +461,64 @@ public class MainActivity3 extends Activity {
 				}
 			});
 		}
+		
 
+	    @Override
+		public void onRefresh() {
+			MyHadler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 1*1000);
+			  // 购物车动态加载
+			list = ShoppingCar.selectShoppingBySign(q.ShoppingCarList, 0);//查找没被购买的
+			addCarGridView((LinearLayout) MainActivity3.this
+					.findViewById(R.id.fujin_btnlist_t2), list);
+			// 初始化选中数据--测试
+			q.ShoppingChoiceCarList = new ArrayList<ShoppingCar>();
+			// 修改选中总价格和选中数量
+			setTotalText();
+			Toast.makeText(MainActivity3.this, "正在刷新", Toast.LENGTH_LONG).show();
+		}
+	 
+		private Handler MyHadler =new Handler(){
+			public void handleMessage(android.os.Message msg) {
+				
+				switch (msg.what) {
+				case REFRESH_COMPLETE:
+					Toast.makeText(MainActivity3.this, "刷新完成", Toast.LENGTH_LONG).show();
+					refresh_layout.setRefreshing(false);
+					break;
+				default:
+					break;
+				}
+				
+			};
+		};
+
+	/*	@Override
+		public void onRefresh() {
+			new Thread(new Runnable() {//下拉触发的函数，这里是谁1s然后加入一个数据，然后更新界面
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				 	handler.sendEmptyMessage(0);
+				}
+			}).start();
+		}
+		private MyHandler handler = new MyHandler();
+		private class MyHandler extends Handler{
+			@Override
+			public void handleMessage(Message msg) {
+				switch (msg.what) {
+				case 0:
+					refresh_layout.setRefreshing(false);
+					//adapter.notifyDataSetChanged();
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		*/
 }

@@ -23,7 +23,7 @@
         android:id="@+id/show_car_img"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/a1" />
+        android:src="@drawable/yunlanxuanhuabing2" />
 
     <LinearLayout
         android:layout_width="match_parent"

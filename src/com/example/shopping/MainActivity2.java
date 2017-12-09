@@ -4,6 +4,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
+import android.view.Menu;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 import cn.androiddevelop.cycleviewpager.lib.CycleViewPager;
 import cn.androiddevelop.cycleviewpager.lib.CycleViewPager.ImageCycleViewListener;
 
@@ -12,26 +33,8 @@ import com.example.shopping.Model.Goods;
 import com.example.shopping.Model.Quanju;
 import com.stevenhu.android.phone.bean.ADInfo;
 
-import android.os.Bundle;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActionBar.LayoutParams;
-import android.content.Intent;
-import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
-
-public class MainActivity2 extends Activity {
+public class MainActivity2 extends Activity 
+implements OnRefreshListener{
 	private LinearLayout layout_menu_1, layout_menu_2, layout_menu_3,
 			layout_menu_4;
 	Intent intent;
@@ -52,6 +55,8 @@ public class MainActivity2 extends Activity {
 	private GridView gridView;
 	private LinearLayout ll;
 	ArrayList<HashMap<String, Object>> data_list;// 获取列表数据
+	private SwipeRefreshLayout refresh_layout = null;//刷新控件
+	private static final int REFRESH_COMPLETE=200;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +81,10 @@ public class MainActivity2 extends Activity {
 		tv.setText("热荐");
 		//位置定位
 		mScrollView.smoothScrollTo(0,20);
+		//刷新操作
+		refresh_layout = (SwipeRefreshLayout) this.findViewById(R.id.refresh_layout);
+		refresh_layout.setColorScheme(R.color.green, R.color.gray, R.color.blue_50, R.color.light_white);//设置跑动的颜色值
+		refresh_layout.setOnRefreshListener(this);//设置下拉的监听
 	}
 
 	@Override
@@ -192,14 +201,14 @@ public class MainActivity2 extends Activity {
 				if (action == MotionEvent.ACTION_MOVE) {
 					// 超过阈值
 					if (Math.abs(event.getX() - mLastX) > 60f) {
-						// mRefreshLayout.setEnabled(false);//下拉刷新视图处理
+						refresh_layout.setEnabled(false);//下拉刷新视图处理
 						mScrollView.requestDisallowInterceptTouchEvent(true);
 					}
 				}
 				if (action == MotionEvent.ACTION_UP) {
 					// 用户抬起手指，恢复父布局状态
 					mScrollView.requestDisallowInterceptTouchEvent(false);
-					// mRefreshLayout.setEnabled(true);//下拉刷新视图处理
+					refresh_layout.setEnabled(true);//下拉刷新视图处理
 				}
 				return false;
 			}
@@ -291,4 +300,33 @@ public class MainActivity2 extends Activity {
 		 */
 	}
 
+	
+	   @Override
+				public void onRefresh() {
+					MyHadler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 1*1000);
+					// 热门推荐动态加载
+					addGridView((LinearLayout) MainActivity2.this
+							.findViewById(R.id.fujin_btnlist_tl),Goods.selectGoodsByTop(Goods.sortGoodsListBySort(q.GoodsList, 0),
+									4));
+					// 特色推荐动态加载
+					addGridView((LinearLayout) MainActivity2.this
+							.findViewById(R.id.fujin_btnlist_t2),Goods.selectGoodsByTop(Goods.sortGoodsListBySort(q.GoodsList, 1),
+									4));
+					Toast.makeText(MainActivity2.this, "正在刷新", Toast.LENGTH_LONG).show();
+					
+				}
+			 
+				private Handler MyHadler =new Handler(){
+					public void handleMessage(android.os.Message msg) {
+						switch (msg.what) {
+						case REFRESH_COMPLETE:
+							Toast.makeText(MainActivity2.this, "刷新完成", Toast.LENGTH_LONG).show();
+							refresh_layout.setRefreshing(false);
+							break;
+						default:
+							break;
+						}
+						
+					};
+				};
 }

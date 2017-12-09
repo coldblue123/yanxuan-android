@@ -5,8 +5,10 @@
     android:background="#f4f4f4"
     tools:context=".MainActivity3" >
 
-    <!-- 头部导航 -->
 
+  
+  
+  <!-- 头部导航 -->
     <LinearLayout
         android:id="@+id/ly_shooping_top"
         android:layout_width="match_parent"
@@ -28,13 +30,19 @@
     </LinearLayout>
 
     <!-- 用于填充数据的listview -->
-
+   <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_below="@+id/ly_shooping_top"
+        android:layout_above="@+id/ly_car_bottom"
+        >
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/ly_car_bottom"
-        android:layout_below="@+id/ly_shooping_top" >
+        android:layout_below="@+id/refresh_layout" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,6 +96,7 @@
         </LinearLayout>
     </ScrollView>
 
+     </android.support.v4.widget.SwipeRefreshLayout>
     <!-- 底部导航 -->
 
     <LinearLayout

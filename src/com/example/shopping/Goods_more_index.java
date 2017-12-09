@@ -74,6 +74,9 @@ public class Goods_more_index extends Activity {
 		getGoodsDetail();
 		// 轮播图控件初始化
 		initialize();
+		TextView tv=(TextView)this
+				.findViewById(R.id.textView_title);
+			tv.setText("详情");
 		// 推荐添加视图
 		addGridView();
 		// 添加购物车事件

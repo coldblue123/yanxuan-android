@@ -13,14 +13,20 @@
         android:layout_alignParentTop="true" >
         <include layout="@layout/title" />
     </LinearLayout>
-
+  <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_below="@+id/ly_shooping_top"
+        android:layout_above="@+id/ly_show_bottom"
+        >
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ly_show_bottom"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ly_shooping_top" >
+        android:layout_below="@+id/refresh_layout" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,14 +128,13 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
+  </android.support.v4.widget.SwipeRefreshLayout>
     <LinearLayout
         android:id="@+id/ly_show_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical" >
-
         <include layout="@layout/bottom" />
     </LinearLayout>
 
