@@ -1,49 +1,50 @@
-   ½çÃæ
-   |---find_list.xml   ËÑË÷ĞÅÏ¢½çÃæ 
-   |---activity_main.xml Ê×Ò³
-   |---activity_main2.xml ÍÆ¼öÊ×Ò³
-   |---activity_main3.xml ¹ºÎï³µ
-   |---activity_main4.xml ÎÒµÄ
+   æ­¤é¡¹ç›®ä¸ºæœŸæœ«ä½œä¸š
+   ç•Œé¢
+   |---find_list.xml   æœç´¢ä¿¡æ¯ç•Œé¢ 
+   |---activity_main.xml é¦–é¡µ
+   |---activity_main2.xml æ¨èé¦–é¡µ
+   |---activity_main3.xml è´­ç‰©è½¦
+   |---activity_main4.xml æˆ‘çš„
    
-¸´ÓÃ
-×é¼ş
-   |---banner.xml ÂÖ²¥Í¼×é¼ş
-   |---find.xml ËÑË÷¿ò×é¼ş
-   |---find_list2.xml ÈÈµãÍÆ¼ö×é¼ş
-   |---lable.xml ±êÇ©1 ×é¼ş
-   |---lable2.xml ±êÇ©2 ×é¼ş
-   |---show_com_list.xml ÏÔÊ¾·ÖÀàÉÌÆ·×é¼ş
+å¤ç”¨
+ç»„ä»¶
+   |---banner.xml è½®æ’­å›¾ç»„ä»¶
+   |---find.xml æœç´¢æ¡†ç»„ä»¶
+   |---find_list2.xml çƒ­ç‚¹æ¨èç»„ä»¶
+   |---lable.xml æ ‡ç­¾1 ç»„ä»¶
+   |---lable2.xml æ ‡ç­¾2 ç»„ä»¶
+   |---show_com_list.xml æ˜¾ç¤ºåˆ†ç±»å•†å“ç»„ä»¶
     
     
  
-ÉÌÆ·ÏêÏ¸Ïà¹Ø½çÃæ
-	goods_more_index.xml  --Ö÷Ò³
-	goods_more_bottom.xml --µ×²¿µ¼º½
+å•†å“è¯¦ç»†ç›¸å…³ç•Œé¢
+	goods_more_index.xml  --ä¸»é¡µ
+	goods_more_bottom.xml --åº•éƒ¨å¯¼èˆª
 	goods_more_label1.xml
 	goods_more_label2.xml
 	goods_more_label3.xml
 	goods_more_label4.xml
 	goods_more_label5.xml
-	goods_more_label6.xml --ÒÔÉÏÎª¾²Ì¬±êÇ©
+	goods_more_label6.xml --ä»¥ä¸Šä¸ºé™æ€æ ‡ç­¾
       
     
- ¹ºÎï³µ
-    activity_main3.xml ¹ºÎï³µ
+ è´­ç‰©è½¦
+    activity_main3.xml è´­ç‰©è½¦
     shopping_car_bottom.xml
 	shopping_car_item.xml
 	shopping_car_label1.xml
 	shopping_car_title.xml
 	
-ÄãÒªµÄÍ·²¿
+ä½ è¦çš„å¤´éƒ¨
 	title.xml
 	
 	
-ÎÒµÄ
-	activity_main4.xml ÎÒµÄ
+æˆ‘çš„
+	activity_main4.xml æˆ‘çš„
 	user_label1.xml
 	user_label2.xml	
 	
-µÇÂ¼
+ç™»å½•
 	login.xml
     
     
@@ -53,58 +54,58 @@
     
    
    
-    //²»ÏÔÊ¾²»Õ¼¿Õ¼ä
+    //ä¸æ˜¾ç¤ºä¸å ç©ºé—´
     android:visibility="gone"
     
-    // ³¬³ö»»ĞĞ
+    // è¶…å‡ºæ¢è¡Œ
     android:ellipsize="end"
 	android:singleLine="true" 
-	//Á½ĞĞ
+	//ä¸¤è¡Œ
 	android:ellipsize="end"
 	android:maxLines="2"
 	
-	// ²»×Ô¶¯»ñÈ¡½¹µã
+	// ä¸è‡ªåŠ¨è·å–ç„¦ç‚¹
 	android:focusable="true" 
     android:focusableInTouchMode="true" 
     
     // GridView
-    1.android:numColumns=¡±auto_fit¡±   //GridViewµÄÁĞÊıÉèÖÃÎª×Ô¶¯
-	2.android:columnWidth=¡±90dp "       //Ã¿ÁĞµÄ¿í¶È£¬Ò²¾ÍÊÇItemµÄ¿í¶È
-	3.android:stretchMode=¡±columnWidth"//Ëõ·ÅÓëÁĞ¿í´óĞ¡Í¬²½
-	4.android:verticalSpacing=¡±10dp¡±          //Á½ĞĞÖ®¼äµÄ±ß¾à
-	5.android:horizontalSpacing=¡±10dp¡±      //Á½ÁĞÖ®¼äµÄ±ß¾à 
-	6.android:cacheColorHint="#00000000" //È¥³ıÍÏ¶¯Ê±Ä¬ÈÏµÄºÚÉ«±³¾°
-	7.android:listSelector="#00000000"        //È¥³ıÑ¡ÖĞÊ±µÄ»ÆÉ«µ×É«
-	8.android:scrollbars="none"                   //Òş²ØGridViewµÄ¹ö¶¯Ìõ
-	9.android:fadeScrollbars="true"             //ÉèÖÃÎªtrue¾Í¿ÉÒÔÊµÏÖ¹ö¶¯ÌõµÄ×Ô¶¯Òş²ØºÍÏÔÊ¾
-	10.android:fastScrollEnabled="true"      //GridView³öÏÖ¿ìËÙ¹ö¶¯µÄ°´Å¥(ÖÁÉÙ¹ö¶¯4Ò³²Å»áÏÔÊ¾)
-	11.android:fadingEdge="none"                //GridViewË¥Âä(ÍÊÈ¥)±ßÔµÑÕÉ«Îª¿Õ£¬È±Ê¡ÖµÊÇvertical¡£(¿ÉÒÔÀí½âÎªÉÏÏÂ±ßÔµµÄÌáÊ¾É«)
-	12.android:fadingEdgeLength="10dip"   //¶¨ÒåµÄË¥Âä(ÍÊÈ¥)±ßÔµµÄ³¤¶È
-	13.android:stackFromBottom="true"       //ÉèÖÃÎªtrueÊ±£¬Äã×öºÃµÄÁĞ±í¾Í»áÏÔÊ¾ÄãÁĞ±íµÄ×îÏÂÃæ
-	14.android:transcriptMode="alwaysScroll" //µ±Äã¶¯Ì¬Ìí¼ÓÊı¾İÊ±£¬ÁĞ±í½«×Ô¶¯ÍùÏÂ¹ö¶¯×îĞÂµÄÌõÄ¿¿ÉÒÔ×Ô¶¯¹ö¶¯µ½¿ÉÊÓ·¶Î§ÄÚ
-	15.android:drawSelectorOnTop="false"  //µã»÷Ä³Ìõ¼ÇÂ¼²»·Å£¬ÑÕÉ«»áÔÚ¼ÇÂ¼µÄºóÃæ³ÉÎª±³¾°É«,ÄÚÈİµÄÎÄ×Ö¿É¼û(È±Ê¡Îªfalse)
+    1.android:numColumns=â€auto_fitâ€   //GridViewçš„åˆ—æ•°è®¾ç½®ä¸ºè‡ªåŠ¨
+	2.android:columnWidth=â€90dp "       //æ¯åˆ—çš„å®½åº¦ï¼Œä¹Ÿå°±æ˜¯Itemçš„å®½åº¦
+	3.android:stretchMode=â€columnWidth"//ç¼©æ”¾ä¸åˆ—å®½å¤§å°åŒæ­¥
+	4.android:verticalSpacing=â€10dpâ€          //ä¸¤è¡Œä¹‹é—´çš„è¾¹è·
+	5.android:horizontalSpacing=â€10dpâ€      //ä¸¤åˆ—ä¹‹é—´çš„è¾¹è· 
+	6.android:cacheColorHint="#00000000" //å»é™¤æ‹–åŠ¨æ—¶é»˜è®¤çš„é»‘è‰²èƒŒæ™¯
+	7.android:listSelector="#00000000"        //å»é™¤é€‰ä¸­æ—¶çš„é»„è‰²åº•è‰²
+	8.android:scrollbars="none"                   //éšè—GridViewçš„æ»šåŠ¨æ¡
+	9.android:fadeScrollbars="true"             //è®¾ç½®ä¸ºtrueå°±å¯ä»¥å®ç°æ»šåŠ¨æ¡çš„è‡ªåŠ¨éšè—å’Œæ˜¾ç¤º
+	10.android:fastScrollEnabled="true"      //GridViewå‡ºç°å¿«é€Ÿæ»šåŠ¨çš„æŒ‰é’®(è‡³å°‘æ»šåŠ¨4é¡µæ‰ä¼šæ˜¾ç¤º)
+	11.android:fadingEdge="none"                //GridViewè¡°è½(è¤ªå»)è¾¹ç¼˜é¢œè‰²ä¸ºç©ºï¼Œç¼ºçœå€¼æ˜¯verticalã€‚(å¯ä»¥ç†è§£ä¸ºä¸Šä¸‹è¾¹ç¼˜çš„æç¤ºè‰²)
+	12.android:fadingEdgeLength="10dip"   //å®šä¹‰çš„è¡°è½(è¤ªå»)è¾¹ç¼˜çš„é•¿åº¦
+	13.android:stackFromBottom="true"       //è®¾ç½®ä¸ºtrueæ—¶ï¼Œä½ åšå¥½çš„åˆ—è¡¨å°±ä¼šæ˜¾ç¤ºä½ åˆ—è¡¨çš„æœ€ä¸‹é¢
+	14.android:transcriptMode="alwaysScroll" //å½“ä½ åŠ¨æ€æ·»åŠ æ•°æ®æ—¶ï¼Œåˆ—è¡¨å°†è‡ªåŠ¨å¾€ä¸‹æ»šåŠ¨æœ€æ–°çš„æ¡ç›®å¯ä»¥è‡ªåŠ¨æ»šåŠ¨åˆ°å¯è§†èŒƒå›´å†…
+	15.android:drawSelectorOnTop="false"  //ç‚¹å‡»æŸæ¡è®°å½•ä¸æ”¾ï¼Œé¢œè‰²ä¼šåœ¨è®°å½•çš„åé¢æˆä¸ºèƒŒæ™¯è‰²,å†…å®¹çš„æ–‡å­—å¯è§(ç¼ºçœä¸ºfalse)
 
-		// ÂÖ²¥Í¼
+		// è½®æ’­å›¾
 		viewPager = (ViewPager)findViewById(R.id.viewPager);
-		// ¹ö¶¯Ìõ
+		// æ»šåŠ¨æ¡
 		mScrollView = (ScrollView)findViewById(R.id.scrollView1);
-		// ´¦Àí¹ö¶¯ÌõºÍÂÖ²¥Í¼µÄ³åÍ»ÊÂ¼ş
+		// å¤„ç†æ»šåŠ¨æ¡å’Œè½®æ’­å›¾çš„å†²çªäº‹ä»¶
 		viewPager.setOnTouchListener(new OnTouchListener() {
 			@Override
 		    public boolean onTouch(View v, MotionEvent event) {
 		        int action = event.getAction();
 		        if(action == MotionEvent.ACTION_DOWN) {
-		            // ¼ÇÂ¼µã»÷µ½ViewPagerÊ±ºò£¬ÊÖÖ¸µÄX×ø±ê
+		            // è®°å½•ç‚¹å‡»åˆ°ViewPageræ—¶å€™ï¼Œæ‰‹æŒ‡çš„Xåæ ‡
 		            mLastX = event.getX();
 		        }
 		        if(action == MotionEvent.ACTION_MOVE) {
-		            // ³¬¹ıãĞÖµ
+		            // è¶…è¿‡é˜ˆå€¼
 		            if(Math.abs(event.getX() - mLastX) > 10f) {
 		                mScrollView.requestDisallowInterceptTouchEvent(true);
 		            }
 		        }
 		        if(action == MotionEvent.ACTION_UP) {
-		            // ÓÃ»§Ì§ÆğÊÖÖ¸£¬»Ö¸´¸¸²¼¾Ö×´Ì¬
+		            // ç”¨æˆ·æŠ¬èµ·æ‰‹æŒ‡ï¼Œæ¢å¤çˆ¶å¸ƒå±€çŠ¶æ€
 		            mScrollView.requestDisallowInterceptTouchEvent(false);
 		        }
 		        return true;
