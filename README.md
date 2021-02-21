@@ -13,21 +13,21 @@
 </p>
 
 <p align="center">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182453.jpg?raw=true">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182502.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182453.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182502.jpg?raw=true">
 </p>
 
 <p align="center">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182514.jpg?raw=true">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182624.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182514.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182624.jpg?raw=true">
 </p>
 
 <p align="center">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182853.jpg?raw=true">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182907.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182853.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182907.jpg?raw=true">
 </p>
 
 <p align="center">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182921.jpg?raw=true">
-    <img width="440" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182931.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182921.jpg?raw=true">
+    <img width="410" src="https://github.com/coldblue123/yanxuan-android/blob/develop/image/S71209-182931.jpg?raw=true">
 </p>
